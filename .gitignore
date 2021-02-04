@@ -6,3 +6,6 @@ riderModule.iml
 /CMS.Web/appsettings.Development.json
 /.idea/
 /.vs/
+/CMS.Web/wwwroot/assets/dist/
+/CMS.Web/node_modules/
+/CMS.Web/package-lock.json
