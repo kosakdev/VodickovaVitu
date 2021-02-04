@@ -2,8 +2,8 @@
 
 namespace CMS.DAL.Entities.Interfaces
 {
-    public interface IEntity
+    public interface IEntity<TId>
     {
-        public Guid Id { get; set; }
+        public TId Id { get; set; }
     }
 }

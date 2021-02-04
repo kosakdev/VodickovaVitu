@@ -3,8 +3,8 @@ using CMS.DAL.Entities.Interfaces;
 
 namespace CMS.DAL.Entities
 {
-    public class EntityBase : IEntity
+    public class EntityBase<TId> : IEntity<TId>
     {
-        public Guid Id { get; set; }
+        public TId Id { get; set; }
     }
 }
