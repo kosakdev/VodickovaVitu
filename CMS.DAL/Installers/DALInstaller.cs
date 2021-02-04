@@ -10,7 +10,7 @@ namespace CMS.DAL.Installers
         {
             serviceCollection.Scan(selector =>
                 selector.FromCallingAssembly()
-                    .AddClasses(classes => classes.AssignableTo(typeof(IAppRepository<>)))
+                    .AddClasses(classes => classes.AssignableTo(typeof(IAppRepository<,>)))
                     .AsSelfWithInterfaces()
                     .WithTransientLifetime()
             );
