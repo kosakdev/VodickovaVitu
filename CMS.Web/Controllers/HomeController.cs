@@ -9,6 +9,7 @@ using CMS.Web.Models;
 
 namespace CMS.Web.Controllers
 {
+    [Route("Home/[action]")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
