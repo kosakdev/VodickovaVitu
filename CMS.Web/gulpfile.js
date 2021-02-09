@@ -1,5 +1,3 @@
-"use strict";
-
 const { series, parallel } = require('gulp');
 const gulp = require('gulp');
 const sass = require('gulp-sass')
@@ -64,7 +62,7 @@ function javascript() {
     
 }
 
-function libcss() {
+function libCss() {
     return gulp.src([
         paths.lib.src + '/bootstrap/scss/bootstrap.scss'
     ])
@@ -78,12 +76,39 @@ function libcss() {
         .pipe(gulp.dest(paths.css.dest));
 }
 
-function libjavascript() {
+function libAdminCss() {
+    return gulp.src([
+        paths.lib.src + '/bootstrap/scss/bootstrap.scss'
+    ])
+        .pipe(sourcemaps.init())
+        .pipe(sass({ outputStyle: "expanded" }))
+        .on("error", sass.logError)
+        .pipe(concat('lib-admin-bundle.css'))
+        .pipe(rename({ suffix: ".min" }))
+        .pipe(postcss([autoprefixer(), cssnano()]))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(paths.css.dest));
+}
+
+function libJavascript() {
     return gulp.src([
         paths.lib.src + '/bootstrap/js/bootstrap.bundle.min.js'
     ])
         .pipe(tsProject())
         .pipe(concat('lib-bundle.js'))
+        .pipe(rename({ suffix: ".min" }))
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(terser())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(paths.js.dest));
+}
+
+function libAdminJavascript() {
+    return gulp.src([
+        paths.lib.src + '/bootstrap/js/bootstrap.bundle.min.js'
+    ])
+        .pipe(tsProject())
+        .pipe(concat('lib-admin-bundle.js'))
         .pipe(rename({ suffix: ".min" }))
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(terser())
@@ -121,6 +146,6 @@ function watch() {
 
 exports.images = images;
 exports.watch = watch;
-exports.css = series(css, libcss);
-exports.js = series(javascript, libjavascript);
-exports.build = series(clean, parallel(series(css, javascript), series(libcss, libjavascript)));
+exports.css = series(css, libCss, libAdminCss);
+exports.js = series(javascript, libJavascript, libAdminJavascript);
+exports.build = series(clean, parallel(series(css, javascript), series(libCss, libJavascript, libAdminCss, libAdminJavascript)));
