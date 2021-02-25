@@ -11,41 +11,47 @@ namespace CMS.BL.Facades
         where TRepository : RepositoryBase<TEntity, TId> 
         where TEntity : class, IEntity<TId>
     {
-        private readonly TRepository _repository;
-        private readonly IMapper _mapper;
+        protected readonly TRepository Repository;
+        protected readonly IMapper Mapper;
 
         public FacadeBase(TRepository repository, IMapper mapper)
         {
-            _repository = repository;
-            _mapper = mapper;
+            Repository = repository;
+            Mapper = mapper;
         }
 
         public virtual async Task<List<TListModel>> GetAll()
         {
-            return _mapper.Map<List<TListModel>>(await _repository.GetAll());
+            return Mapper.Map<List<TListModel>>(await Repository.GetAll());
         }
 
         public virtual async Task<TDetailModel> GetById(TId id)
         {
-            var entity = await _repository.GetById(id);
-            return _mapper.Map<TDetailModel>(entity);
+            var entity = await Repository.GetById(id);
+            return Mapper.Map<TDetailModel>(entity);
+        }
+        
+        public virtual async Task<TUpdateModel> GetEditedById(TId id)
+        {
+            var entity = await Repository.GetById(id);
+            return Mapper.Map<TUpdateModel>(entity);
         }
 
         public virtual async Task<TId> Create(TNewModel newModel)
         {
-            var entity = _mapper.Map<TEntity>(newModel);
-            return await _repository.Insert(entity);
+            var entity = Mapper.Map<TEntity>(newModel);
+            return await Repository.Insert(entity);
         }
 
         public virtual async Task<TId> Update(TUpdateModel updateModel)
         {
-            var entity = _mapper.Map<TEntity>(updateModel);
-            return await _repository.Update(entity);
+            var entity = Mapper.Map<TEntity>(updateModel);
+            return await Repository.Update(entity);
         }
 
         public virtual async Task Remove(TId id)
         {
-            await _repository.Remove(id);
+            await Repository.Remove(id);
         }
     }
 }
