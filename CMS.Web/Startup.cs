@@ -64,8 +64,17 @@ namespace CMS.Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "admin",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+                
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                
+                endpoints.MapControllerRoute(
+                    name: "Gallery",
+                    pattern: "{controller=Gallery}/{*url}",
+                    defaults: new { action = "Details" });
             });
             
             UpdateDatabase(app);
