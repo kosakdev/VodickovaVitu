@@ -123,7 +123,8 @@ function images() {
         .pipe(
             imagemin([
                 imagemin.gifsicle({ interlaced: true }),
-                imagemin.jpegtran({ progressive: true }),
+                // imagemin.mozjpeg({ progressive: true, }),
+                imagemin.mozjpeg({ quality: 95 }),
                 imagemin.optipng({ optimizationLevel: 5 }),
                 imagemin.svgo({
                     plugins: [
