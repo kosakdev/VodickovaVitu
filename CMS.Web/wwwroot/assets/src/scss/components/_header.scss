@@ -9,6 +9,11 @@
     position: relative;
 
     @media (max-width: 1380px) {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      padding-top: 50px;
+    }
+    @include phone {
       padding-top: 50px;
       display: flex;
       align-items: center;
@@ -27,12 +32,20 @@
       line-height: normal;
       letter-spacing: normal;
       color: #f1f4f1;
+      
+      @include phone {
+        font-size: 50px;
+      }
     }
     
     &__text {
       color: #fff;
       position: relative;
       z-index: 5;
+      
+      @include phone {
+        margin-top: 20px;
+      }
       
       &__title {
         text-transform: uppercase;
@@ -52,12 +65,17 @@
         letter-spacing: normal;
         text-align: left;
         color: #ffffff;
+        
+        @include phone {
+          height: auto;
+          font-size: 25px;
+        }
       }
     }
     &__media {
       position: absolute;
       right: -60px;
-      top: 50px;
+      top: 70px;
 
       @media (max-width: 1380px) {
         position: static;
@@ -86,6 +104,11 @@
         text-align: center;
         margin: auto;
         margin-bottom: 50px;
+        
+        @include phone {
+          font-size: 60px;
+          margin-bottom: 0;
+        }
       }
     }
   }

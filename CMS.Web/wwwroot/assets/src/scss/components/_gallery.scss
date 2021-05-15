@@ -10,6 +10,9 @@
 //}
 
 .section__gallery {
+  @include phone {
+    margin-top: 10px;
+  }
   &__grid {    
     &__list {
       display: grid;

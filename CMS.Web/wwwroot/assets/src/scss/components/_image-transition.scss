@@ -23,6 +23,11 @@
       height: 380px;
       background-image: url("../images/libisevamjakhrajemefotka.jpg");
       right: 0;
+      @include phonetablet {
+        width: 100vw;
+        background-position: center;
+        background-position-x: -120px;
+      }
     }
   }
   &__main-image {
@@ -39,6 +44,9 @@
     background-image: url("../images/libisevamjakhrajeme.jpg");
     width: 580px;
     padding: 20px;
+    @include phone {
+      width: 100%;
+    }
     &__title {
       color: #ffffff;
       font-size: 80px;
@@ -52,6 +60,10 @@
       
       margin-top: 60px;
       margin-bottom: 50px;
+      
+      @include phone {
+        font-size: 60px;
+      }
     }
     &__link {
       color: #ffffff;
