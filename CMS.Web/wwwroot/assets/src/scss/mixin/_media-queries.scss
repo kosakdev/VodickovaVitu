@@ -21,6 +21,12 @@ $bigdesktop-with: 1340px;
   }
 }
 
+@mixin phonetablet {
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
 @mixin bigdesktop {
   @media (min-width: #{$bigdesktop-with}) {
     @content;
