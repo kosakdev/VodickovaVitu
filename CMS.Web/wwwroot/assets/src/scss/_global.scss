@@ -44,6 +44,10 @@ body {
     color: #000000;
     margin-bottom: 10px;
     
+    @include phone {
+      font-size: 40px;
+    }
+    
     &--new-line {
       display: block;
     }
