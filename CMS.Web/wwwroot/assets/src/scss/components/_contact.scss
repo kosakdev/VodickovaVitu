@@ -2,6 +2,12 @@
   margin-top: -150px;
   position: relative;
   z-index: 1;
+  
+  @include phonetablet {
+    margin-top: 0;
+    position: static;
+  }
+  
   &__back-image {
     position: absolute;
     right: 0;
@@ -10,12 +16,25 @@
     width: 30vw;
     height: 500px;
     background-image: url("../images/kontakt_delici_pozadi.jpg");
+    
+    @include phonetablet {
+      display: none;
+    }
   }
   &__block {
     display: grid;
     grid-template-columns: auto auto;
     grid-column-gap: 100px;
     padding-top: 200px;
+    
+    @include phonetablet {
+      padding-top: 50px;
+    }
+    
+    @include phone {
+      grid-template-columns: auto;
+    }
+    
     &__text-block {
       display: flex;
       justify-content: center;
@@ -36,6 +55,10 @@
     &__image {
       img {
         max-width: 650px;
+        width: 100%;
+        @include phone {
+          max-width: 100%;
+        }
       }
     }
   }
