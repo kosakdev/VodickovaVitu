@@ -59,12 +59,11 @@ function javascript() {
         .pipe(terser())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.js.dest));
-    
 }
 
 function libCss() {
     return gulp.src([
-        paths.lib.src + '/bootstrap/scss/bootstrap.scss'
+        paths.lib.src + '/bootstrap/scss/bootstrap.scss',
     ])
         .pipe(sourcemaps.init())
         .pipe(sass({ outputStyle: "expanded" }))
@@ -92,7 +91,8 @@ function libAdminCss() {
 
 function libJavascript() {
     return gulp.src([
-        paths.lib.src + '/bootstrap/js/bootstrap.bundle.min.js'
+        paths.lib.src + '/masonry/masonry.pkgd.min.js',
+        paths.lib.src + '/masonry/imagesloaded.pkgd.min.js'
     ])
         .pipe(tsProject())
         .pipe(concat('lib-bundle.js'))
@@ -123,7 +123,8 @@ function images() {
         .pipe(
             imagemin([
                 imagemin.gifsicle({ interlaced: true }),
-                imagemin.jpegtran({ progressive: true }),
+                // imagemin.mozjpeg({ progressive: true, }),
+                imagemin.mozjpeg({ quality: 95 }),
                 imagemin.optipng({ optimizationLevel: 5 }),
                 imagemin.svgo({
                     plugins: [
@@ -148,4 +149,4 @@ exports.images = images;
 exports.watch = watch;
 exports.css = series(css, libCss, libAdminCss);
 exports.js = series(javascript, libJavascript, libAdminJavascript);
-exports.build = series(clean, parallel(series(css, javascript), series(libCss, libJavascript, libAdminCss, libAdminJavascript)));
+exports.build = series(clean, series(series(css, javascript), series(libCss, libJavascript, libAdminCss, libAdminJavascript)), images);

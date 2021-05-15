@@ -20,4 +20,8 @@
       <ProjectReference Include="..\CMS.DAL\CMS.DAL.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="wwwroot\assets\src\images" />
+    </ItemGroup>
+
 </Project>
