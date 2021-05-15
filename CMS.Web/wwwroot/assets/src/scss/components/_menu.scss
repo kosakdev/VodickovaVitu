@@ -4,10 +4,21 @@
   padding-top: 40px;
   align-items: center;
   
+  @include phone {
+    display: block;
+    padding-top: 20px;
+  }
+  
   &__logo {
+    @include phone {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-content: flex-start;
+    }
     &__text {
       font-family: $font;
-      font-size: $font-size;
+      font-size: 25px;
       font-weight: 500;
       font-stretch: normal;
       font-style: normal;
@@ -18,7 +29,43 @@
       text-decoration: none;
       
       &:hover {
-        text-decoration: underline;
+        text-decoration: none;
+      }
+    }
+  }
+  &__togg {
+    display: none;
+    @include phone {
+      //width: 100%;
+      display: inline-block;
+      &__toggler {
+        width: 4.875rem;
+        height: 4.875rem;
+        opacity: 1;
+        cursor: pointer;
+        margin: auto;
+        margin-right: 0;
+        svg {
+          #path-top, #path-middle, #path-bottom {
+            fill: none;
+            stroke: #ffffff;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 2px;
+          }
+          .path-top-active {
+            stroke-dasharray: 30px, 88px!important;
+            stroke-dashoffset: -81px!important;
+          }
+          .path-middle-active {
+            stroke-dasharray: 0, 88px!important;
+            stroke-dashoffset: -15px!important;
+          }
+          .path-bottom-active {
+            stroke-dasharray: 30px, 88.1px!important;
+            stroke-dashoffset: -6px!important;
+          }
+        }
       }
     }
   }
@@ -27,6 +74,14 @@
     &__item {
       display: inline-block;
       margin-right: 20px;
+
+      @include phone {
+        display: block;
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+      }
       &:last-child {
         margin-right: 0;
       }
@@ -39,6 +94,12 @@
           border-bottom: 4px solid white;
           color: #ffffff;
         }
+      }
+    }
+
+    &--hide {
+      @include phone {
+        display: none;
       }
     }
   }

@@ -6,8 +6,17 @@
   &__content {
     padding-top: 200px;
     padding-bottom: 100px;
-    
     position: relative;
+
+    @media (max-width: 1380px) {
+      padding-top: 50px;
+      display: flex;
+      align-items: center;
+    }
+    
+    @include phone {
+      flex-direction: column-reverse;
+    }
     
     &__title {
       font-family: $font;
@@ -49,9 +58,14 @@
       position: absolute;
       right: -60px;
       top: 50px;
+
+      @media (max-width: 1380px) {
+        position: static;
+      }
+      
       
       &__img {
-        max-width: 800px;
+        max-width: 750px;
         width: 100%;
         height: auto;
       }
@@ -62,6 +76,7 @@
     background-image: url("../images/uvodnifotka.jpg");
     background-size: cover;
     position: relative;
+    background-position: center;
     
     .header__content {
       width: 100%;
