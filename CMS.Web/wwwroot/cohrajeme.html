@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Home - CMS.Web - ADMIN</title>
+    <link rel="stylesheet" href="/assets/dist/css/main.min.css" />
+</head>
+<body>
+<header class="header">
+    <nav class="nav container">
+        <div class="nav__logo">
+            <a href="index.html" class="nav__logo__text">Markéta Vodičková <span class="new-line">& Filip Vítů</span></a>
+        </div>
+        <ul class="nav__list">
+            <li class="nav__list__item"><a href="onas.html" class="nav__list__item__link">O nás</a></li>
+            <li class="nav__list__item"><a href="cohrajeme.html" class="nav__list__item__link">Co hrajeme</a></li>
+            <li class="nav__list__item"><a href="galerie.html" class="nav__list__item__link">Fotografie</a></li>
+            <li class="nav__list__item"><a href="kalendar.html" class="nav__list__item__link">Kalendář</a></li>
+            <li class="nav__list__item"><a href="kontakt.html" class="nav__list__item__link">Kontakt</a></li>
+        </ul>
+    </nav>
+    <div class="header__content container">
+        <div class="header__content__text">
+            <h1 class="header__content__text__title header__content__title">Co hrajeme</h1>
+            <p class="header__content__text__description">V našem repertoáru najdete vlastní i převzaté písně. Pop, rock, jazz, blues, soul a vlastně vše, co nás právě baví!</p>
+        </div>
+        <div class="header__content__media">
+            <img class="header__content__media__img" src="assets/dist/images/kontakt_fotka.jpg" alt="" />
+        </div>
+    </div>
+
+</header>
+
+<div class="content__space"></div>
+
+<section class="section section__video">
+    <div class="container">
+        <div class="section__video__block">
+            <div class="section__video__block__player" id="player__container">
+                <div class="section__video__block__player__player" id="player"></div>
+            </div>
+            <div class="section__video__block__list" id="player__list">
+                
+            </div>
+            <div class="section__video__block__back-image"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section section__simple-text">
+    <div class="container">
+        <p class="section__simple-text__text">
+            Náš celý repertoár najdete <a href="" class="section__simple-text__text__link">ZDE</a>.
+        </p>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer__social">
+        <a href="#" class="footer__social__item">
+            <img src="assets/dist/images/paticka/mail.svg" alt="">
+        </a>
+        <a href="#" class="footer__social__item">
+            <img src="assets/dist/images/paticka/fb.svg" alt="">
+        </a>
+        <a href="#" class="footer__social__item">
+            <img src="assets/dist/images/paticka/yt.svg" alt="">
+        </a>
+    </div>
+    <div class="footer__text">
+        <p class="footer__text__text">© 2021 - Markéta Vodičková a Filip Vítů</p>
+    </div>
+</footer>
+
+<script src="/assets/dist/js/lib-bundle.min.js"></script>
+<script src="/assets/dist/js/web-bundle.min.js?v=r-HpayCia2kJlSN7GQnTxapGtsjbA9jpMagQV9G5z8Q"></script>
+
+<script>
+    let tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    let firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    // Init player after loading YouTube library
+    function onYouTubeIframeAPIReady() {
+        new web.PlayerController("player");
+    }
+</script>
+
+<script>
+</script>
+</body>
+</html>

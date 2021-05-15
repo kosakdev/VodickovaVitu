@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Home - CMS.Web - ADMIN</title>
+<!--    <link rel="stylesheet" href="/assets/dist/css/lib-bundle.min.css" />-->
+    <link rel="stylesheet" href="/assets/dist/css/main.min.css" />
+</head>
+<body>
+<header class="header">
+    <nav class="nav container">
+        <div class="nav__logo">
+            <a href="index.html" class="nav__logo__text">Markéta Vodičková <span class="new-line">& Filip Vítů</span></a>
+        </div>
+        <ul class="nav__list">
+            <li class="nav__list__item"><a href="onas.html" class="nav__list__item__link">O nás</a></li>
+            <li class="nav__list__item"><a href="cohrajeme.html" class="nav__list__item__link">Co hrajeme</a></li>
+            <li class="nav__list__item"><a href="galerie.html" class="nav__list__item__link">Fotografie</a></li>
+            <li class="nav__list__item"><a href="kalendar.html" class="nav__list__item__link">Kalendář</a></li>
+            <li class="nav__list__item"><a href="kontakt.html" class="nav__list__item__link">Kontakt</a></li>
+        </ul>
+    </nav>
+    <div class="header__content container">
+        <div class="header__content__text">
+            <h1 class="header__content__text__title header__content__title">Fotogalerie</h1>
+            <p class="header__content__text__description"></p>
+        </div>
+        <div class="header__content__media">
+            <img class="header__content__media__img" src="assets/dist/images/fotogalerie_fotka.jpg" alt="" />
+        </div>
+    </div>
+    
+</header>
+
+<div class="content__space"></div>
+
+<section class="section section__gallery">
+    <div class="container">
+        <div class="section__gallery__grid">
+            <div class="section__gallery__grid__list section__gallery__grid__list--3">
+                <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/1.jpg" alt="" />
+                <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/2.jpg" alt="" />
+                <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/3.jpg" alt="" />
+            </div>
+
+            <div class="section__gallery__grid__list section__gallery__grid__list--1">
+                <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/4.jpg" alt="" />
+
+            </div>
+
+            <div class="section__gallery__grid__list section__gallery__grid__list--3">
+                <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/5.jpg" alt="" />
+                <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/6.jpg" alt="" />
+                <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/7.jpg" alt="" />
+            </div>
+
+            <div class="section__gallery__grid__list section__gallery__grid__list--2">
+                <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/8.jpg" alt="" />
+                <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/9.jpg" alt="" />
+            </div>
+
+            <div class="section__gallery__grid__list section__gallery__grid__list--2--second-bigger">
+                <div class="section__gallery__grid__list__items">
+                    <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/10.jpg" alt="" />
+                    <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/13.jpg" alt="" />
+                </div>
+
+                <div class="section__gallery__grid__list__items">
+                    <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/11.jpg" alt="" />
+                    <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/12.jpg" alt="" />
+                </div>
+            </div>
+
+            <div class="section__gallery__grid__list section__gallery__grid__list--3">
+                <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/14.jpg" alt="" />
+                <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/15.jpg" alt="" />
+                <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/16.jpg" alt="" />
+            </div>
+
+            <div class="section__gallery__grid__list section__gallery__grid__list--2--first-bigger">
+                <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/17.jpg" alt="" />
+                <img class="section__gallery__grid__item__img" src="assets/dist/images/gallery/18.jpg" alt="" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer__social">
+        <a href="#" class="footer__social__item">
+            <img src="assets/dist/images/paticka/mail.svg" alt="">
+        </a>
+        <a href="#" class="footer__social__item">
+            <img src="assets/dist/images/paticka/fb.svg" alt="">
+        </a>
+        <a href="#" class="footer__social__item">
+            <img src="assets/dist/images/paticka/yt.svg" alt="">
+        </a>
+    </div>
+    <div class="footer__text">
+        <p class="footer__text__text">© 2021 - Markéta Vodičková a Filip Vítů</p>
+    </div>
+</footer>
+
+
+<script src="/assets/dist/js/lib-bundle.min.js"></script>
+<script src="/assets/dist/js/web-bundle.min.js?v=r-HpayCia2kJlSN7GQnTxapGtsjbA9jpMagQV9G5z8Q"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => { new web.GalleryController(); });
+</script>
+</body>
+</html>

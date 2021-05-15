@@ -1,4 +1,11 @@
-class MainController{
-    constructor() {
+
+namespace web {
+    export class MainController{
+        constructor() {
+        }
+        
+        public InitShowButtons() {
+            
+        }
     }
 }

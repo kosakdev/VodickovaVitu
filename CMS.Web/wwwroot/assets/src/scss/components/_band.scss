@@ -1,0 +1,71 @@
+.section__band {
+  position: relative;
+  
+  .container {
+    position: relative;
+    padding-top: 140px;
+    padding-bottom: 100px;
+  }
+  
+  &__back-image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 600px;
+    height: 100%;
+    background-image: url("../images/onas_vetrech_pozadi.jpg");
+    z-index: -1;
+    margin-left: -50px;
+  }
+  
+  &__block {
+    &__title {
+      color: white;
+      text-transform: none;
+      margin-bottom: 50px;
+      &--new-line {
+        display: block;
+      }
+    }
+    &__list {
+      width: 77%;
+      margin: auto;
+      &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 40px;
+        &__image {
+          img {
+            max-width: 470px;
+          }
+        }
+        &__text {
+          margin-left: 30px;
+          h3 {
+            font-family: $font;
+            font-size: $font-size;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: #000000;
+          }
+          p {
+            font-family: $font;
+            font-size: $font-size;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+}
