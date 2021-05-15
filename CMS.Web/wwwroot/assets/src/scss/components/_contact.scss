@@ -1,0 +1,42 @@
+.section__contact {
+  margin-top: -150px;
+  position: relative;
+  z-index: 1;
+  &__back-image {
+    position: absolute;
+    right: 0;
+    z-index: -1;
+
+    width: 30vw;
+    height: 500px;
+    background-image: url("../images/kontakt_delici_pozadi.jpg");
+  }
+  &__block {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column-gap: 100px;
+    padding-top: 200px;
+    &__text-block {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      p {
+        font-family: $font;
+        font-size: $font-size;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.83;
+        letter-spacing: normal;
+        text-align: left;
+        color: #000000;
+        display: block;
+      }
+    }
+    &__image {
+      img {
+        max-width: 650px;
+      }
+    }
+  }
+}

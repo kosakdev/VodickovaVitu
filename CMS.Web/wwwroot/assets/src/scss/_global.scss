@@ -1,0 +1,54 @@
+// ROBOTO
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+$font: 'Roboto', sans-serif;
+// Open sans
+//@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+//$font: 'Open Sans', sans-serif;
+
+$font-size: 20px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font;
+}
+
+.container {
+  width: 1300px;
+  margin: auto;
+}
+
+.section {
+  margin-top: 100px;
+  &__title {
+    text-transform: uppercase;
+    font-family: $font;
+    font-size: 50px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+    margin-bottom: 10px;
+    
+    &--new-line {
+      display: block;
+    }
+  }
+}
+
+.new-line {
+  display: block;
+}
+
+.content__space {
+  height: 130px;
+  display: block;
+  clear: both;
+}
