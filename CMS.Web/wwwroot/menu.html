@@ -42,62 +42,9 @@
 
 <div class="content__space"></div>
 
-<section class="section section__video">
-    <div class="container">
-        <div class="section__video__block">
-            <div class="section__video__block__player" id="player__container">
-                <div class="section__video__block__player__player" id="player"></div>
-            </div>
-            <div class="section__video__block__list" id="player__list">
-                
-            </div>
-            <div class="section__video__block__back-image"></div>
-        </div>
-    </div>
-</section>
-
-<section class="section section__simple-text">
-    <div class="container">
-        <p class="section__simple-text__text">
-            Náš celý repertoár najdete <a href="" class="section__simple-text__text__link">ZDE</a>.
-        </p>
-    </div>
-</section>
-
-<footer class="footer">
-    <div class="footer__social">
-        <a href="#" class="footer__social__item">
-            <img src="assets/dist/images/paticka/mail.svg" alt="">
-        </a>
-        <a href="#" class="footer__social__item">
-            <img src="assets/dist/images/paticka/fb.svg" alt="">
-        </a>
-        <a href="#" class="footer__social__item">
-            <img src="assets/dist/images/paticka/yt.svg" alt="">
-        </a>
-    </div>
-    <div class="footer__text">
-        <p class="footer__text__text">© 2021 - Markéta Vodičková a Filip Vítů</p>
-    </div>
-</footer>
-
 <script src="/assets/dist/js/lib-bundle.min.js"></script>
 <script src="/assets/dist/js/web-bundle.min.js?v=r-HpayCia2kJlSN7GQnTxapGtsjbA9jpMagQV9G5z8Q"></script>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => { new web.MainController(); });
-    
-    let tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    let firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    // Init player after loading YouTube library
-    function onYouTubeIframeAPIReady() {
-        new web.PlayerController("player");
-    }
 </script>
-
-<script>
-</script>
-</body>
-</html>
