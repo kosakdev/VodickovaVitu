@@ -27,6 +27,7 @@ namespace web {
                     // console.log(this.jsonData);
                     this.showData();
                     this.initPlayer();
+                    this.addEventListener();
                 });
         }
         
@@ -47,6 +48,7 @@ namespace web {
                 
                 let node = document.createElement('div');
                 node.classList.add('section__video__block__list__item');
+                node.setAttribute("data-index", String(i));
                 // Image part
                 let imageDiv = document.createElement('div');
                 imageDiv.classList.add('section__video__block__list__item__image');
@@ -71,6 +73,23 @@ namespace web {
 
                 document.getElementById("player__list").appendChild(node);
             }
+        }
+        
+        private addEventListener() {
+            const elements = document.getElementsByClassName("section__video__block__list__item");
+
+            for (let i = 0; i < elements.length; i++) {
+                // @ts-ignore
+                elements[i].addEventListener('click', this.eventHandler.bind(this, parseInt(elements[i].dataset.index)), false);
+            }
+        }
+        
+        private eventHandler(index: number) {
+            this.videoIndex = index;
+            this.preparePlayer();
+            this.initPlayer();
+            this.showData();
+            this.addEventListener();
         }
         
         private preparePlayer() {
@@ -112,7 +131,6 @@ namespace web {
         public onPlayerStateChange(event: any) {
             // @ts-ignore
             if (event.data == YT.PlayerState.ENDED) {
-                console.log("END");
                 this.videoIndex += 1;
                 if (this.videoIndex >= this.jsonData.length) {
                     this.videoIndex = 0;
@@ -120,6 +138,7 @@ namespace web {
                 this.preparePlayer();
                 this.initPlayer();
                 this.showData();
+                this.addEventListener();
             }
         }
     }
