@@ -14,12 +14,12 @@ $local-img-shift: 100px;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-column-gap: 0;
-    @include phone {
+    @include phonetablet {
       grid-template-columns: auto;
     }
     &__data {
-      @include phone {
-        margin-bottom: 10px;
+      @include phonetablet {
+        margin-bottom: 20px;
       }
       &__title {
         color: #ffffff;
@@ -48,7 +48,7 @@ $local-img-shift: 100px;
         align-items: center;
 
         @include phone {
-          font-size: 25px;
+          font-size: 22px;
         }
 
         &__date {
@@ -56,7 +56,7 @@ $local-img-shift: 100px;
           margin-right: 15px;
           
           @include phone {
-            font-size: 60px;
+            font-size: 45px;
             margin-right: 10px;
           }
         }
@@ -64,7 +64,7 @@ $local-img-shift: 100px;
           border-right: 2px solid white;
           min-width: 200px;
           @include phone {
-            min-width: 50%;
+            min-width: 35%;
           }
           &__month {
 
@@ -77,15 +77,20 @@ $local-img-shift: 100px;
           margin-left: 30px;
           align-self: start;
           padding-top: 10px;
+          
+          @include phone {
+            margin-left: 10px;
+          }
         }
       }
     }
     &__image {
       position: relative;
       top: -$local-img-shift;
-      @include phone {
+      @include phonetablet {
         position: static;
         top: 0;
+        margin-bottom: 10px;
       }
       &__img, img {
         width: 100%;
