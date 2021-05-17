@@ -45,6 +45,7 @@
       
       @include phone {
         margin-top: 20px;
+        width: 100%;
       }
       
       &__title {
@@ -69,6 +70,7 @@
         @include phone {
           height: auto;
           font-size: 25px;
+          max-width: 100%;
         }
       }
     }
