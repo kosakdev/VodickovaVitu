@@ -55,6 +55,11 @@ namespace CMS.Web
                 options.LogoutPath = $"/Identity/Account/Logout";
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
+            
+            services.AddAuthorization(options =>
+            {
+                // options.AddPolicy("", policy => policy.RequireRole("?"));
+            });
 
         }
 
