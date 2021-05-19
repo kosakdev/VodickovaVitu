@@ -1,9 +1,13 @@
-﻿using CMS.DAL.Entities;
+﻿using System;
+using CMS.DAL.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CMS.DAL
 {
-    public class WebDataContext : DbContext
+    public class WebDataContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid, IdentityUserClaim<Guid>,
+        AppUserRole, IdentityUserLogin<Guid>, IdentityRoleClaim<Guid>, IdentityUserToken<Guid>>
     {
         public WebDataContext(DbContextOptions options) : base(options)
         {

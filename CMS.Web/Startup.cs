@@ -1,8 +1,11 @@
+using System;
 using CMS.BL.Installers;
 using CMS.DAL;
+using CMS.DAL.Entities;
 using CMS.DAL.Installers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +26,7 @@ namespace CMS.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddOptions();
             
             services.AddDbContext<WebDataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), m => m.MigrationsAssembly("CMS.Web")), ServiceLifetime.Transient);
 
@@ -38,6 +42,20 @@ namespace CMS.Web
                         .AllowAnyHeader()
                         .AllowAnyMethod());
             });
+            
+            services.AddIdentity<AppUser, IdentityRole<Guid>>()
+                .AddEntityFrameworkStores<WebDataContext>()
+                .AddRoles<IdentityRole<Guid>>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = $"/Identity/Account/Login";
+                options.LogoutPath = $"/Identity/Account/Logout";
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,6 +77,7 @@ namespace CMS.Web
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -75,6 +94,8 @@ namespace CMS.Web
                     name: "Gallery",
                     pattern: "{controller=Gallery}/{*url}",
                     defaults: new { action = "Details" });
+                
+                endpoints.MapRazorPages();
             });
             
             UpdateDatabase(app);
@@ -84,7 +105,7 @@ namespace CMS.Web
         {
             using var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
             using var context = serviceScope.ServiceProvider.GetService<WebDataContext>();
-            context.Database.Migrate();
+            if (context != null) context.Database.Migrate();
         }
     }
 }
