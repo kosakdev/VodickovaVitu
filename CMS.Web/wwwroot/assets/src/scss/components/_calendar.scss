@@ -1,0 +1,34 @@
+.section__calendar {
+  &__block {
+    &__list {
+      &__item { // line
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+        border-bottom: 4px solid black;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-gap: 10px;
+        
+        @include phone {
+          grid-template-columns: auto auto;
+        }
+        
+        &__cel {
+          text-transform: uppercase;
+          font-family: $font;
+          font-size: $font-size;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: #000000;
+        }
+      }
+    }
+    &__button {
+      
+    }
+  }
+}
