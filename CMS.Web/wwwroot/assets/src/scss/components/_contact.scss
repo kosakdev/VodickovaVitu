@@ -39,7 +39,7 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
-      p {
+      &__text, p {
         font-family: $font;
         font-size: $font-size;
         font-weight: normal;
@@ -50,6 +50,10 @@
         text-align: left;
         color: #000000;
         display: block;
+        
+        &--number {
+          //font-size: 15px;
+        }
       }
     }
     &__image {

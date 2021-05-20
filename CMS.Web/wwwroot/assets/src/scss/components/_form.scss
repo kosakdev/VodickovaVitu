@@ -8,6 +8,11 @@
     }
     &__item {
       width: 100%;
+      p {
+        font-family: $font;
+        font-size: $font-size;
+        font-weight: normal;
+      }
       label {
         display: block;
         width: 100%;
@@ -15,7 +20,7 @@
         
         font-family: $font;
         font-size: $font-size;
-        font-weight: normal;
+        font-weight: 500;
         font-stretch: normal;
         font-style: normal;
         line-height: normal;
@@ -46,6 +51,7 @@
         width: 100px;
         margin: auto 0 auto auto;
         border: 0;
+        font-weight: 500;
         &:hover {
           cursor: pointer;
         }

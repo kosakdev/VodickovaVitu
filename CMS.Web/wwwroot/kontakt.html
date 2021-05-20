@@ -24,8 +24,8 @@
         <ul class="nav__list nav__list--hide" id="menu-nav">
             <li class="nav__list__item"><a href="onas.html" class="nav__list__item__link">O nás</a></li>
             <li class="nav__list__item"><a href="cohrajeme.html" class="nav__list__item__link">Co hrajeme</a></li>
-            <li class="nav__list__item"><a href="galerie.html" class="nav__list__item__link">Fotogalerie</a></li>
             <li class="nav__list__item"><a href="kalendar.html" class="nav__list__item__link">Kalendář</a></li>
+            <li class="nav__list__item"><a href="galerie.html" class="nav__list__item__link">Fotogalerie</a></li>
             <li class="nav__list__item"><a href="kontakt.html" class="nav__list__item__link">Kontakt</a></li>
         </ul>
     </nav>
@@ -48,23 +48,23 @@
         <div class="section__form__block">
             <div class="section__form__block--column">
                 <div class="section__form__block__item">
-                    <label class="section__calendar__block__list__item__label" for="jmeno">Jméno</label>
+                    <label class="section__calendar__block__list__item__label" for="jmeno">Jméno *</label>
                     <input class="section__calendar__block__list__item__input" type="text" id="jmeno" placeholder="">
                 </div>
                 <div class="section__form__block__item">
-                    <label class="section__calendar__block__list__item__label" for="email">Email</label>
+                    <label class="section__calendar__block__list__item__label" for="email">Email *</label>
                     <input class="section__calendar__block__list__item__input" type="text" id="email" placeholder="">
                 </div>
                 <div class="section__form__block__item">
-                    <label class="section__calendar__block__list__item__label" for="datum">Datum</label>
+                    <label class="section__calendar__block__list__item__label" for="datum">Datum *</label>
                     <input class="section__calendar__block__list__item__input" type="text" id="datum" placeholder="">
                 </div>
                 <div class="section__form__block__item">
-                    <label class="section__calendar__block__list__item__label" for="misto">Místo</label>
+                    <label class="section__calendar__block__list__item__label" for="misto">Místo *</label>
                     <input class="section__calendar__block__list__item__input" type="text" id="misto" placeholder="">
                 </div>
                 <div class="section__form__block__item">
-                    <label class="section__calendar__block__list__item__label" for="typ-akce">Typ akce</label>
+                    <label class="section__calendar__block__list__item__label" for="typ-akce">Typ akce *</label>
                     <select id="typ-akce">
                         <option value="koncert">Koncert</option>
                         <option value="vernisaz">Vernisáž</option>
@@ -75,12 +75,18 @@
                     </select>
                 </div>
                 <div class="section__form__block__item">
-                    <label class="section__calendar__block__list__item__label" for="slozeni-kapely">Složení kapely</label>
+                    <label class="section__calendar__block__list__item__label" for="slozeni-kapely">Složení kapely *</label>
                     <select id="slozeni-kapely">
                         <option value="sami">Marketa Vodičková & Filip Vítů</option>
                         <option value="cajon">Marketa Vodičková & Filip Vítů & cajon</option>
                         <option value="kapela">Marketa Vodičková & Filip Vítů & kapela</option>
                     </select>
+                </div>
+                <div class="section__form__block__item">
+                    <label class="section__calendar__block__list__item__label" for="telefon">Telefon</label>
+                    <input class="section__calendar__block__list__item__input" type="text" id="telefon" placeholder="">
+                </div>
+                <div class="section__form__block__item">
                 </div>
             </div>
             <div class="section__form__block__item">
@@ -90,6 +96,10 @@
             <div class="section__form__block__item">
                 <input type="submit" value="Odeslat">
             </div>
+            <div class="section__form__block__item">
+                <p>Odesláním souhlasím se zpracování osobních údajů.</p>
+            </div>
+            
         </div>
     </div>
 </section>
@@ -100,8 +110,8 @@
         <div class="section__contact__block">
             <div class="section__contact__block__text-block">
                 <p>vodickova.vitu@gmail.com</p>
-                <p>Markéta Vodičková +420 737 542 418</p>
-                <p>Filip Vítů +420 773 220 195</p>
+                <p>Filip Vítů <span class="section__contact__block__text-block__text--number">+420 773 220 195</span></p>
+                <p>Markéta Vodičková <span class="section__contact__block__text-block__text--number">+420 737 542 418</span></p>
             </div>
             <div class="section__contact__block__image">
                 <img src="assets/dist/images/kontakt_delici_fotka.jpg" alt="" />
