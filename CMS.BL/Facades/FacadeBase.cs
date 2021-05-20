@@ -20,9 +20,9 @@ namespace CMS.BL.Facades
             Mapper = mapper;
         }
 
-        public virtual async Task<List<TListModel>> GetAll()
+        public virtual async Task<IList<TListModel>> GetAll()
         {
-            return Mapper.Map<List<TListModel>>(await Repository.GetAll());
+            return Mapper.Map<IList<TListModel>>(await Repository.GetAll());
         }
 
         public virtual async Task<TDetailModel> GetById(TId id)

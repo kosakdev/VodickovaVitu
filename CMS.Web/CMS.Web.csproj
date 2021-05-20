@@ -26,8 +26,4 @@
       <ProjectReference Include="..\CMS.DAL\CMS.DAL.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Areas\Identity\Data" />
-    </ItemGroup>
-
 </Project>
