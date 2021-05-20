@@ -124,7 +124,7 @@ function images() {
             imagemin([
                 imagemin.gifsicle({ interlaced: true }),
                 // imagemin.mozjpeg({ progressive: true, }),
-                imagemin.mozjpeg({ quality: 95 }),
+                imagemin.mozjpeg({ quality: 99 }),
                 imagemin.optipng({ optimizationLevel: 5 }),
                 imagemin.svgo({
                     plugins: [

@@ -98,6 +98,10 @@
     position: relative;
     background-position: center;
     
+    @include phone {
+      background-image: url("../images/uvodnifotka-m.jpg");
+    }
+    
     .header__content {
       width: 100%;
       position: absolute;
