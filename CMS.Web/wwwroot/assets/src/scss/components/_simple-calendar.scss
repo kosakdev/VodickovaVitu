@@ -1,0 +1,101 @@
+$local-img-shift: 100px;
+
+.section__simple-calendar {
+  background-image: url("../images/pozadi_hrajeme.jpg");
+  height: 100%;
+  width: 100%;
+  margin-top: 200px;
+  
+  @include phone {
+    margin-top: 100px;
+  }
+  
+  &__block {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 0;
+    @include phonetablet {
+      grid-template-columns: auto;
+    }
+    &__data {
+      @include phonetablet {
+        margin-bottom: 20px;
+      }
+      &__title {
+        color: #ffffff;
+        font-family: $font;
+        font-size: 80px;
+        font-weight: 500;
+        margin-top: 70px;
+        margin-bottom: 40px;
+        @include phone {
+          font-size: 60px;
+        }
+      }
+      &__item {
+        font-family: $font;
+        font-size: 30px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ffffff;
+        text-transform: uppercase;
+        
+        display: flex;
+        align-items: center;
+
+        @include phone {
+          font-size: 22px;
+        }
+
+        &__date {
+          font-size: 80px;
+          margin-right: 15px;
+          
+          @include phone {
+            font-size: 45px;
+            margin-right: 10px;
+          }
+        }
+        &__month-year {
+          border-right: 2px solid white;
+          min-width: 200px;
+          @include phone {
+            min-width: 35%;
+          }
+          &__month {
+
+          }
+          &__year {
+
+          }
+        }
+        &__city {
+          margin-left: 30px;
+          align-self: start;
+          padding-top: 10px;
+          
+          @include phone {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+    &__image {
+      position: relative;
+      top: -$local-img-shift;
+      @include phonetablet {
+        position: static;
+        top: 0;
+        margin-bottom: 10px;
+      }
+      &__img, img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

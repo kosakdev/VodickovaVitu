@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Markéta Vodičková & Filip Vítů</title>
+    <link rel="stylesheet" href="/assets/dist/css/main.min.css" />
+</head>
+<body>
+<header class="header">
+    <nav class="nav container">
+        <div class="nav__logo">
+            <a href="index.html" class="nav__logo__text">Markéta Vodičková <span class="new-line">& Filip Vítů</span></a>
+            <div class="nav__togg" id="menu-toggler">
+                <div class="nav__togg__toggler">
+                    <svg class="icon" viewBox="0 0 70 70" xmlns="http://www.w3.org/2000/svg" data-zanim-lg="{&quot;from&quot;:{&quot;opacity&quot;:0,&quot;x&quot;:45},&quot;to&quot;:{&quot;opacity&quot;:1,&quot;x&quot;:0},&quot;ease&quot;:&quot;CubicBezier&quot;,&quot;duration&quot;:0.8,&quot;delay&quot;:0.5}" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                        <path id="path-top" d="M20,25c0,0,22,0,30,0c16,0,18.89,40.71-.15,21.75C38.7,35.65,19.9,16.8,19.9,16.8" style="stroke-dasharray: 30px, 88px; stroke-dashoffset: 0px;"></path>
+                        <path id="path-middle" d="M20,32h30" style="stroke-dasharray: 30px, 30px; stroke-dashoffset: 0px;"></path>
+                        <path id="path-bottom" d="M19.9,46.98c0,0,18.8-18.85,29.95-29.95C68.89-1.92,66,38.78,50,38.78c-8,0-30,0-30,0" style="stroke-dasharray: 30px, 88.1px; stroke-dashoffset: -88px;"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <ul class="nav__list nav__list--hide" id="menu-nav">
+            <li class="nav__list__item"><a href="onas.html" class="nav__list__item__link">O nás</a></li>
+            <li class="nav__list__item"><a href="cohrajeme.html" class="nav__list__item__link">Co hrajeme</a></li>
+            <li class="nav__list__item"><a href="kalendar.html" class="nav__list__item__link">Kalendář</a></li>
+            <li class="nav__list__item"><a href="galerie.html" class="nav__list__item__link">Fotogalerie</a></li>
+            <li class="nav__list__item"><a href="kontakt.html" class="nav__list__item__link">Kontakt</a></li>
+        </ul>
+    </nav>
+    <div class="header__content container">
+        <div class="header__content__text">
+            <h1 class="header__content__text__title header__content__title">Kontakt</h1>
+            <p class="header__content__text__description"></p>
+        </div>
+        <div class="header__content__media">
+            <img class="header__content__media__img" src="assets/dist/images/kontakt_fotka.jpg" alt="" />
+        </div>
+    </div>
+</header>
+
+<div class="content__space"></div>
+
+<section class="section section__form">
+    <div class="container">
+        <h2 class="section__title">Poptávkový formulář</h2>
+        <div class="section__form__block">
+            <div class="section__form__block--column">
+                <div class="section__form__block__item">
+                    <label class="section__calendar__block__list__item__label" for="jmeno">Jméno *</label>
+                    <input class="section__calendar__block__list__item__input" type="text" id="jmeno" placeholder="">
+                </div>
+                <div class="section__form__block__item">
+                    <label class="section__calendar__block__list__item__label" for="email">Email *</label>
+                    <input class="section__calendar__block__list__item__input" type="text" id="email" placeholder="">
+                </div>
+                <div class="section__form__block__item">
+                    <label class="section__calendar__block__list__item__label" for="datum">Datum *</label>
+                    <input class="section__calendar__block__list__item__input" type="text" id="datum" placeholder="">
+                </div>
+                <div class="section__form__block__item">
+                    <label class="section__calendar__block__list__item__label" for="misto">Místo *</label>
+                    <input class="section__calendar__block__list__item__input" type="text" id="misto" placeholder="">
+                </div>
+                <div class="section__form__block__item">
+                    <label class="section__calendar__block__list__item__label" for="typ-akce">Typ akce *</label>
+                    <select id="typ-akce">
+                        <option value="koncert">Koncert</option>
+                        <option value="vernisaz">Vernisáž</option>
+                        <option value="svatba">Svatba</option>
+                        <option value="oslava">Oslava</option>
+                        <option value="firemni">Firemní večírek</option>
+                        <option value="jine">Jiné</option>
+                    </select>
+                </div>
+                <div class="section__form__block__item">
+                    <label class="section__calendar__block__list__item__label" for="slozeni-kapely">Složení kapely *</label>
+                    <select id="slozeni-kapely">
+                        <option value="sami">Marketa Vodičková & Filip Vítů</option>
+                        <option value="cajon">Marketa Vodičková & Filip Vítů & cajon</option>
+                        <option value="kapela">Marketa Vodičková & Filip Vítů & kapela</option>
+                    </select>
+                </div>
+                <div class="section__form__block__item">
+                    <label class="section__calendar__block__list__item__label" for="telefon">Telefon</label>
+                    <input class="section__calendar__block__list__item__input" type="text" id="telefon" placeholder="">
+                </div>
+                <div class="section__form__block__item">
+                </div>
+            </div>
+            <div class="section__form__block__item">
+                <label class="section__calendar__block__list__item__label" for="text">Další poznámky</label>
+                <textarea class="section__calendar__block__list__item__input" type="text" id="text"></textarea>
+            </div>
+            <div class="section__form__block__item">
+                <input type="submit" value="Odeslat">
+            </div>
+            <div class="section__form__block__item">
+                <p>Odesláním souhlasím se zpracování osobních údajů.</p>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<section class="section section__contact">
+    <div class="section__contact__back-image"></div>
+    <div class="container">
+        <div class="section__contact__block">
+            <div class="section__contact__block__text-block">
+                <p>vodickova.vitu@gmail.com</p>
+                <p>Filip Vítů <span class="section__contact__block__text-block__text--number">+420 773 220 195</span></p>
+                <p>Markéta Vodičková <span class="section__contact__block__text-block__text--number">+420 737 542 418</span></p>
+            </div>
+            <div class="section__contact__block__image">
+                <img src="assets/dist/images/kontakt_delici_fotka.jpg" alt="" />
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="footer__social">
+        <a href="mailto:vodickova.vitu@gmail.com" class="footer__social__item">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="53" viewBox="0 0 54 53"><image width="54" height="53" xlink:href="data:img/png;base64,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"/></svg>
+        </a>
+        <a href="https://www.facebook.com/vodickova.vitu/" class="footer__social__item">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="54" viewBox="0 0 54 54"><image width="54" height="54" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAQAAAAmTKJWAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQflAgUSAgTtulJGAAAEEElEQVRYw72Yb2hVZRzHP+e5f92dWQ1TBpWZ5fIPxlqlpGPWbFBBoIFI0UZ7sygkFiPrzTyvVgaxikq0KKlYhoVjpSgagd6cw1psaSsWSglRMnc1r/Nuu+fpxbln95x7z733ObvX+71vDr/nz+f+nt/v+atJFDSXlayigRrmOOzTXCDKMUYZJUdHuu1bKwhbxiPUs5aFOWvE+Z3vOEw/l4uBPcQWNnC3ivPE6Odrevl3NrAltLOJW5RAlqY4xdvsI+kOE66NgrTwDc97REGANezhE+5yL3aDVfM+u1jqEWQpxDPsZ6Ma7B720EpglihTy9jNi9l9Zxru51MaiwKZupk3eSXzLzthdezkvhKgAMJspwO/3WTPxjvZzXrFrgwMZGoiG/hyDHucbbynzyDS5AV0K6LOcYgzSCaZRgLXqGMrPpeaEXTG6Mn0zEcXHQogyV52MJhhbaIvZ0qNsEX/2fy0YvYoLUpefckLWSioRMvZooaOznl22ELama+A+otuLrrYRR4YbGSTHfYU65T8OsmIq/0yRp5WYZo7qy3YYjYTUoIlHJ0KlrKeJ3iM+ryewWoe79TAj0YDq5VQkLTtWkGaaaeKMBoB53zKUpDN7GNcsIgnC1RNa9K2nlfQSA3zmUulwrjU0QSCFcp+Yd86kEwqt4MbqO+8UdColIemArblTcuxPblLo54NgtoCwbVL2GImlQff1K2s8XO7QsVhPiZIiKNcnbHF+YgRJoCrrKKloJ+VrED+IwurR1ZIpJBk/HxSSCGFfEmhDymH/aic5QQCXCaumTARligNpFQLcv7lKMhNamFTgyXz+h+mWg2mmlF+KhBMOGZakAgGCeYRKSWskYOEEHzIBzO4Cjp4lv9IModFpYRVUQVALWHiKVuIGhYrjktKXlYBUscAUwZT3lBeYUpXnlLBimSVE5YQjJcJNcUfgrNlgl3itOCop01w9hrigGCAP8uAShJlSHCaQ2WAnadPTwgu0sfYdYcdY8icZ1EOXmfUJT7TEybsCp9n3vFLrD6Og7WCfM/eYpeiPDrLu3o8DbvGOy53k2zZ72CqR7kku/QB89NqMMrrCmvJuO10FeOKEqyXndZnej/7itt4w/X+mFYtbWj4AAM/yxVQUV7WYzODYQtVBJ32vEebaRKpcolGsODW+wut1hA6PYM4XURoy9PY7+kU/CttDNgNziCP8SrdjkPN7DVIK1GnKTOjYrzGNterrDcdoJkTmcbs9J3gLZ7jZBGgGDtoZTi7wC0GBr0MsZWnPVymLCXpp4vD7oeh3O+NgodpY52HZ8AkP9HDF/xtN9rfG3Nnl8ERfmAtTTRwb8HV4jw/8i1H8u/7hd+IA9zBgzzAclZSmVU6zTkGOcNxfuOCW3O7Z/8DSAhUqjzXmAAAAAAASUVORK5CYII="/></svg>
+        </a>
+        <a href="https://www.youtube.com/channel/UCVK-q2Argu_cdJvVzq0bVSA" class="footer__social__item">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="53" viewBox="0 0 54 53"><image width="54" height="53" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA1CAQAAACg2ND4AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQflAgUSAh2J0fqGAAAEWUlEQVRYw7WYb2wTdRjHP3e99rqOOXWuExGVwDI1/qXBFJJlTMOLJcJEMsQJiYn/EqJA1BiXzNxuL4xRQ+IMiaiJeyHBTf4IvBhoNIAyeDE3R1BBXEwxgTFxm2OMtb32fNGUXtf7Xdut/b7q/Z57fp97nt7v+T2/k0ycpQOg+aimhmXUUEkZMjIxJrnCBfo4zRCjzv4JKVlYaC7up5ZalnEnqs0NBpc4zQmO089157kkx8g81LOeOhZneyRgmF72cJgxcWROsOVsYxW35ABKappTfMJ+Ivml0c9rvIw/DxCAl5U8RiPtnLUzy4KYdtOaNyohH89ykA12M9vB1rKLx2cFSqqaz2jBmx22gZ0smhMKYB5ttDHPGdbMx1TOGQWg8CZt+MSwNWzntoKgAFxs5W3NZQ8Lsp2qgqES0b3Oi6nL1Dq7nS95oqCohEJs0n9Mj0xmc1FQcDetmj8dFmRjUVAAdTRbYaU8X4DXXSSVZm1JChbk6aKhAAKs05QEzMdTVBQVJrOOBYlCXE2D461xrhMlTow4JjGLRUJGQsGFQgkuhzkepJ5OhZtYLvy/TPo5TIiLTBAhSoQYcYvdhYQLLyoqVSwkQAOltjN5Wal9o7CQFYLaD9/xkn7BOUOa9UJlK3pmAQYgQEDmEVYI5vmPHWRBzVCYLzgqsC0gKHOvsESFOJcXCmCMnwSWUgIKDwmyDMNczUiaCw8RPYZIBiGiuG0sbmpk7kASOF5hMmOsnHY6tPscYrvEuO24RKXMrUK3SWvjcsPlYTZzSHtXe1TgNS1s6FQlfXtLU4TMdMWZBBbTQpO2j70MECVXybIwiRDHqalcwlscYIuNReglO0wn2T5IaqoJBjiTc1xZYPZRJ4rSMLtZT5N+xPYhBVIc+nOPTbVTuJlJdvEVJ/WwrZcpTKOpMMY9AqPXBhZmJ9fo0cWvhWp7/ACIKlwWupVTkrHSrtKlx3FSlfB0MKrwK3WUCNzK+Cd9SDdxPtDJzBdEFuEPmd/5V+C4iLvIVypLBZYwAzKD9AnMfl6Y2UBn1WpWCywj/KzwFydoFLyuTZRpPZxhiihhDAyMtBIm4UHFjYoHNxXU8xzlAtgv9CqM0ssw8wVJaWQV14hiYBDHIEKY5MKWkFDx4kLBjQsPZcLWwOCoflnB5De+d+gafQ7VM3f9ybeJCjLOPpvNpLA6SChZro7RU1TUebr1cBI2SqdwAcxdJl30Q6oQ/0B30WB9dOqmFTbNR8L1NjeN854+lPiZ2mLO0c5IwVEGHexPXlj3s0O0ZvsglLc6+UC/UU3lGSbNpsmZvb7mHd2yqNJhUXagFSy6brYxbB2Y2RZM8SEtBVgGcT7lVS6mD2b2IAYdvMLgnFAjtPDGzL3QvuEx2csmOpmaFSjGMTbyvl0BFH8CLKWBLQTyKsNxzvI5Xdb05fq9Efw8yTMszemrzxSDHGAPQ+nDucMAKghSS5AHhOfuCc5zipMc5+9MoxX2P9zgIRrgyLGeAAAAAElFTkSuQmCC"/></svg>
+        </a>
+    </div>
+    <div class="footer__text">
+        <p class="footer__text__text">© 2021 - Markéta Vodičková a Filip Vítů</p>
+    </div>
+</footer>
+
+
+<script src="/assets/dist/js/lib-bundle.min.js"></script>
+<script src="/assets/dist/js/web-bundle.min.js?v=r-HpayCia2kJlSN7GQnTxapGtsjbA9jpMagQV9G5z8Q"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => { new web.MainController(); });
+</script>
+
+<script>
+</script>
+</body>
+</html>

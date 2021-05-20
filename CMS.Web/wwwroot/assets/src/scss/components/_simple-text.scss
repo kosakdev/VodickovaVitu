@@ -1,0 +1,30 @@
+.section__simple-text {
+  
+  &__text, p {
+    font-family: $font;
+    font-size: $font-size;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 30px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    &__link, a {
+      text-transform: uppercase;
+      color: inherit;
+      //font-style: italic;
+      text-decoration: none;
+      font-weight: 500;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
