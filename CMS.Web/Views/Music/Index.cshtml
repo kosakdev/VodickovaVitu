@@ -1,0 +1,45 @@
+@{
+    ViewBag.Title = "Co hrajeme";
+    ViewBag.Description = "V našem repertoáru najdete vlastní i převzaté písně. Pop, rock, jazz, blues, soul a vlastně vše, co nás právě baví!";
+    ViewBag.Image = "assets/dist/images/cohrajeme_fotka.jpg";
+    ViewBag.ImageDescription = "Markéta Vodičková a Filip Vítů. Hraní na svatbách koncertech. Pop, rock, jazz, blue, soul. Zlín. Jsme zlínská kapela.";
+    
+    Layout = "_Layout";
+}
+
+<section class="section section__video">
+    <div class="container">
+        <div class="section__video__block">
+            <div class="section__video__block__player" id="player__container">
+                <div class="section__video__block__player__player" id="player"></div>
+            </div>
+            <div class="section__video__block__list" id="player__list">
+                
+            </div>
+            <div class="section__video__block__back-image"></div>
+        </div>
+    </div>
+</section>
+
+<section class="section section__simple-text">
+    <div class="container">
+        <p class="section__simple-text__text">
+            Náš celý repertoár najdete <a href="" class="section__simple-text__text__link">ZDE</a>.
+        </p>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => { new web.MainController(); });
+            
+        let tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        let firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        // Init player after loading YouTube library
+        function onYouTubeIframeAPIReady() {
+            new web.PlayerController("player");
+        }
+    </script>
+}

@@ -14,7 +14,7 @@ namespace web {
         }
         
         public initVideo() {
-            fetch('video.json')
+            fetch('./Music/VideoList')
                 .then(response => response.json())
                 .then(data => {
                     this.jsonData = [];
