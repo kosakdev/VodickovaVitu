@@ -34,5 +34,11 @@ namespace CMS.Web.Controllers
 
             return View(article);
         }
+        
+        [Route("onas")]
+        public async Task<IActionResult> AboutUs()
+        {
+            return View();
+        }
     }
 }
