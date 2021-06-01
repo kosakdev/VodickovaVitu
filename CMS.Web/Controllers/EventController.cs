@@ -18,6 +18,7 @@ namespace CMS.Web.Controllers
             _eventFacade = eventFacade;
         }
         
+        [Route("kalendar")]
         public async Task<IActionResult> Index()
         {
             return View(await _eventFacade.GetAll());

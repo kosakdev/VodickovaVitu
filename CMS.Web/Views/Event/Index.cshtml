@@ -1,61 +1,108 @@
 @model IEnumerable<CMS.Models.Event.EventListModel>
 
 @{
-    ViewData["Title"] = "Index";
-    Layout = "_AdminLayout";
+    ViewBag.Title = "Kalendář";
+    ViewBag.Description = "";
+    ViewBag.Image = "assets/dist/images/kalendar_fotka.jpg";
+    ViewBag.ImageDescription = "Markéta Vodičková a Filip Vítů. Zpěv a hudba na svatbách, koncerty, firemní večírky atd. Přijedeme i k vám.";
+    
+    Layout = "_Layout";
 }
+<section class="section section__calendar">
+    <div class="container">
+        <h2 class="section__title">Nadcházející koncerty</h2>
+        <div class="section__calendar__block">
+            <div class="section__calendar__block__list">
+                <div class="section__calendar__block__list__item">
+                    <div class="section__calendar__block__list__item__cel">24. června 2021</div>
+                    <div class="section__calendar__block__list__item__cel">19:00 hodin</div>
+                    <div class="section__calendar__block__list__item__cel">otrokovice</div>
+                    <div class="section__calendar__block__list__item__cel">soukromá akce</div>
+                </div>
+                <div class="section__calendar__block__list__item">
+                    <div class="section__calendar__block__list__item__cel">24. června 2021</div>
+                    <div class="section__calendar__block__list__item__cel">19:00 hodin</div>
+                    <div class="section__calendar__block__list__item__cel">otrokovice</div>
+                    <div class="section__calendar__block__list__item__cel">soukromá akce</div>
+                </div>
+                <div class="section__calendar__block__list__item">
+                    <div class="section__calendar__block__list__item__cel">24. června 2021</div>
+                    <div class="section__calendar__block__list__item__cel">19:00 hodin</div>
+                    <div class="section__calendar__block__list__item__cel">otrokovice</div>
+                    <div class="section__calendar__block__list__item__cel">soukromá akce</div>
+                </div>
+                <div class="section__calendar__block__list__item">
+                    <div class="section__calendar__block__list__item__cel">24. června 2021</div>
+                    <div class="section__calendar__block__list__item__cel">19:00 hodin</div>
+                    <div class="section__calendar__block__list__item__cel">otrokovice</div>
+                    <div class="section__calendar__block__list__item__cel">soukromá akce</div>
+                </div>
+                <div class="section__calendar__block__list__item">
+                    <div class="section__calendar__block__list__item__cel">24. června 2021</div>
+                    <div class="section__calendar__block__list__item__cel">19:00 hodin</div>
+                    <div class="section__calendar__block__list__item__cel">otrokovice</div>
+                    <div class="section__calendar__block__list__item__cel">soukromá akce</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<h1>Index</h1>
+<section class="section section__image-transition">
+    <div class="section__image-transition__back-image section__image-transition__back-image--calendar"></div>
+    <div class="container">
+        <div class="section__image-transition__main-image">
+            <img src="assets/dist/images/kalendar_delici_fotka.jpg" alt="Markéta Vodičková a Filip Vítů. Hrajeme na svatbách, koncertech, firemních akcích, vernisážích atd. Jsme zlínské duo." />
+        </div>
+    </div>
+</section>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImagePath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateTimeFrom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateTimeTo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Text)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImagePath)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateTimeFrom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateTimeTo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Text)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-            </td>
-        </tr>
+<section class="section section__calendar">
+    <div class="container">
+        <h2 class="section__title">Historie akcí</h2>
+        <div class="section__calendar__block">
+            <div class="section__calendar__block__list">
+                @foreach (var item in Model)
+                {
+                    @Html.DisplayFor(modelItem => item.Text)
+                }
+                <div class="section__calendar__block__list__item">
+                    <div class="section__calendar__block__list__item__cel">24. června 2021</div>
+                    <div class="section__calendar__block__list__item__cel">19:00 hodin</div>
+                    <div class="section__calendar__block__list__item__cel">otrokovice</div>
+                    <div class="section__calendar__block__list__item__cel">soukromá akce</div>
+                </div>
+                <div class="section__calendar__block__list__item">
+                    <div class="section__calendar__block__list__item__cel">24. června 2021</div>
+                    <div class="section__calendar__block__list__item__cel">19:00 hodin</div>
+                    <div class="section__calendar__block__list__item__cel">otrokovice</div>
+                    <div class="section__calendar__block__list__item__cel">soukromá akce</div>
+                </div>
+                <div class="section__calendar__block__list__item">
+                    <div class="section__calendar__block__list__item__cel">24. června 2021</div>
+                    <div class="section__calendar__block__list__item__cel">19:00 hodin</div>
+                    <div class="section__calendar__block__list__item__cel">otrokovice</div>
+                    <div class="section__calendar__block__list__item__cel">soukromá akce</div>
+                </div>
+                <div class="section__calendar__block__list__item">
+                    <div class="section__calendar__block__list__item__cel">24. června 2021</div>
+                    <div class="section__calendar__block__list__item__cel">19:00 hodin</div>
+                    <div class="section__calendar__block__list__item__cel">otrokovice</div>
+                    <div class="section__calendar__block__list__item__cel">soukromá akce</div>
+                </div>
+                <div class="section__calendar__block__list__item">
+                    <div class="section__calendar__block__list__item__cel">24. června 2021</div>
+                    <div class="section__calendar__block__list__item__cel">19:00 hodin</div>
+                    <div class="section__calendar__block__list__item__cel">otrokovice</div>
+                    <div class="section__calendar__block__list__item__cel">soukromá akce</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => { new web.MainController(); });
+    </script>
 }
-    </tbody>
-</table>
