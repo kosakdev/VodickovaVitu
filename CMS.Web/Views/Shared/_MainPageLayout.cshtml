@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Markéta Vodičková & Filip Vítů</title>
+    <link rel="stylesheet" href="/assets/dist/css/main.min.css" />
+</head>
+<body>
+<header class="header header--full">
+    <partial name="LayoutParts/_Header" />
+    <div class="header__content">
+        <h1 class="header__content__title">Markéta Vodičková <span class="new-line">& Filip Vítů</span></h1>
+    </div>
+</header>
+
+<div class="content__space"></div>
+
+@RenderBody()
+
+<partial name="LayoutParts/_Footer" />
+@await RenderSectionAsync("Scripts", required: false)
+
+<script>
+</script>
+</body>
+</html>

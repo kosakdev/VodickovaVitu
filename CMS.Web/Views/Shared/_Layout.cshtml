@@ -1,47 +1,34 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using System.Text.RegularExpressions
+<!DOCTYPE html>
+<html lang="cs">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - CMS.Web</title>
-    <link rel="stylesheet" href="~/assets/dist/css/lib-bundle.min.css"/>
-    <link rel="stylesheet" href="~/assets/dist/css/main.min.css"/>
+    <title>@Regex.Replace((string) ViewData["Title"], @"<(.|\n)*?>", string.Empty) | Markéta Vodičková & Filip Vítů</title>
+    <link rel="stylesheet" href="/assets/dist/css/main.min.css" />
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CMS.Web</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                </ul>
-            </div>
+<header class="header">
+    <partial name="LayoutParts/_Header" />
+    <div class="header__content container">
+        <div class="header__content__text">
+            <h1 class="header__content__text__title header__content__title">@ViewData["Title"]</h1>
+            <p class="header__content__text__description">@ViewData["Description"]</p>
         </div>
-    </nav>
-</header>
-<div class="container">
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
-</div>
-
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2021 - CMS.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="header__content__media">
+            <img class="header__content__media__img" src='@ViewData["Image"]' alt='@ViewData["ImageDescription"]' />
+        </div>
     </div>
-</footer>
-<script src="~/assets/dist/js/lib-bundle.min.js"></script>
-<script src="~/assets/dist/js/web-bundle.min.js" asp-append-version="true"></script>
+</header>
+
+<div class="content__space"></div>
+
+@RenderBody()
+
+<partial name="LayoutParts/_Footer" />
 @await RenderSectionAsync("Scripts", required: false)
+
+<script>
+</script>
 </body>
 </html>
