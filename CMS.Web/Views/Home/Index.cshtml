@@ -1,8 +1,82 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Markéta Vodičková <span class='new-line'>& Filip Vítů</span>";
+    
+    Layout = "_MainPageLayout";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="section section__simple-text">
+    <div class="container">
+        <p class="section__simple-text__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
+    </div>
+</section>
+
+<section class="section section__simple-calendar">
+    <div class="container">
+        <div class="section__simple-calendar__block">
+            <div class="section__simple-calendar__block__data">
+                <h2 class="section__title section__simple-calendar__block__data__title">Hrajeme</h2>
+                
+                <div class="section__simple-calendar__block__data__item">
+                    <div class="section__simple-calendar__block__data__item__date">
+                        10
+                    </div>
+                    <div class="section__simple-calendar__block__data__item__month-year">
+                        <div class="section__simple-calendar__block__data__item__month-year__month">Listopad</div>
+                        <div class="section__simple-calendar__block__data__item__month-year__year">2020</div>
+                    </div>
+                    <div class="section__simple-calendar__block__data__item__city">Aš</div>
+                </div>
+                <div class="section__simple-calendar__block__data__item">
+                    <div class="section__simple-calendar__block__data__item__date">
+                        10
+                    </div>
+                    <div class="section__simple-calendar__block__data__item__month-year">
+                        <div class="section__simple-calendar__block__data__item__month-year__month">Prosinec</div>
+                        <div class="section__simple-calendar__block__data__item__month-year__year">2020</div>
+                    </div>
+                    <div class="section__simple-calendar__block__data__item__city">Otrokovice</div>
+                </div>
+                <div class="section__simple-calendar__block__data__item">
+                    <div class="section__simple-calendar__block__data__item__date">
+                        10
+                    </div>
+                    <div class="section__simple-calendar__block__data__item__month-year">
+                        <div class="section__simple-calendar__block__data__item__month-year__month">Červenec</div>
+                        <div class="section__simple-calendar__block__data__item__month-year__year">2020</div>
+                    </div>
+                    <div class="section__simple-calendar__block__data__item__city">Valašské Meziříčí</div>
+                </div>
+            </div>
+            <div class="section__simple-calendar__block__image">
+                <img class="section__simple-calendar__block__image__img" src="assets/dist/images/hrajeme2.jpg" alt="Markéta Vodičková a Filip Vítů. Kytara a zpěv. Zlín. Svatby, koncerty, vernisáže.">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section__simple-video">
+    <div class="container">
+        <div class="section__simple-video__block">
+            <h2 class="section__title section__simple-video__block__title">Poslechněte <span class="section__title--new-line">si nás</span></h2>
+            <div class="section__simple-video__block__video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/dywm0wsupUs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section__image-transition">
+    <div class="section__image-transition__back-image section__image-transition__back-image--main"></div>
+    <div class="container container--custom">
+        <div class="section__image-transition__block-image">
+            <h2 class="section__title section__image-transition__block-image__title">Líbí se Vám jak hrajeme?</h2>
+            <a asp-controller="Contact" asp-action="Index" class="section__image-transition__block-image__link">Kontaktujte <span class="new-line">nás.</span></a>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => { new web.MainController(); });
+    </script>
+}
