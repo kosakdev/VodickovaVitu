@@ -1,0 +1,35 @@
+@model ICollection<CMS.Models.BandComposition.BandCompositionListModel>
+
+@{
+    ViewBag.Title = "title";
+}
+
+<a asp-action="Create" class="btn btn-outline-dark">Vytvořit</a>
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                @Html.DisplayText("|")
+                @* <a asp-action="Details" asp-route-id="@item.Id">Detail</a> *@
+                @* @Html.DisplayText("|") *@
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

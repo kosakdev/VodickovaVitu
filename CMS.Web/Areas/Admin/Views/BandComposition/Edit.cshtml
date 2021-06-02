@@ -1,0 +1,30 @@
+@model CMS.Models.BandComposition.BandCompositionUpdateModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<form asp-action="Edit" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="FileName" />
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <img src="~/uploads/@Model.FileName" alt="" style="max-width: 100%; width: auto;">
+    <div class="form-group">
+        <label asp-for="FormFile" class="control-label"></label>
+        <input asp-for="FormFile" class="form-control-file" />
+        <span asp-validation-for="FormFile" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+</form>
