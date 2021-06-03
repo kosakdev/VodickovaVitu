@@ -1,3 +1,5 @@
+@model ICollection<CMS.Models.BandComposition.BandCompositionListModel>
+
 @{
     ViewBag.Title = "O nás";
     ViewBag.Description = "Můžete nás slyšet na různých akcích. A pokud jsme se vám zalíbili, moc rádi hudebně doplníme i tu vaši.";
@@ -84,36 +86,20 @@
     <div class="container">
         <div class="section__band__back-image"></div>
         <div class="section__band__block">
-            <h2 class="section__title section__band__block__title">Vystupujeme ve třech <span class="section__band__block__title--new-line">variantách</span></h2>
-
+            <h2 class="section__title section__band__block__title">Vystupujeme ve @Model.Count <span class="section__band__block__title--new-line">variantách</span></h2>
             <div class="section__band__block__list">
-                <div class="section__band__block__list__item">
-                    <div class="section__band__block__list__item__image">
-                        <img src="assets/dist/images/onas_vetrech_jenoni.jpg" alt="Markéta Vodičková a Filip Vítů. Zpěv, kytara, looper. Skvělá varianta na většinu akcí. Hudební doprovod. Zlínské duo." >
+                @foreach (var item in Model)
+                {
+                    <div class="section__band__block__list__item">
+                        <div class="section__band__block__list__item__image">
+                            <img src="~/uploads/@item.FileName" alt="Markéta Vodičková a Filip Vítů. Zpěv, kytara, looper. Skvělá varianta na většinu akcí. Hudební doprovod. Zlínské duo.">
+                        </div>
+                        <div class="section__band__block__list__item__text">
+                            <h3>@Html.DisplayFor(modelItem => item.Title)</h3>
+                            <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                        </div>
                     </div>
-                    <div class="section__band__block__list__item__text">
-                        <h3>Markéta Vodičková & Filip Vítů </h3>
-                        <p>Takhle vystupujeme nejčastěji. Zpěv, kytara, looper. Ideální varianta na většinu akcí.</p>
-                    </div>
-                </div>
-                <div class="section__band__block__list__item">
-                    <div class="section__band__block__list__item__image">
-                        <img src="assets/dist/images/onas_vetrech_cajon.jpg" alt="Markéta Vodičková a Filip Vítů a cajon. Cajon a další perkuse. Zlínská kapela. Hudební duo." >
-                    </div>
-                    <div class="section__band__block__list__item__text">
-                        <h3>Markéta Vodičková & Filip Vítů & cajon</h3>
-                        <p>Rytmičtější varianta - přibereme k sobě hráče na cajon a další perkuse.</p>
-                    </div>
-                </div>
-                <div class="section__band__block__list__item">
-                    <div class="section__band__block__list__item__image">
-                        <img src="assets/dist/images/onas_vetrech_kapela.jpg" alt="Markéta Vodičková a Filip Vítů a kapela. Zpěv, kytara, basa a bicí. Hudební kapela ze Zlína a okolí." >
-                    </div>
-                    <div class="section__band__block__list__item__text">
-                        <h3>Markéta Vodičková & Filip Vítů & kapela</h3>
-                        <p>Zpěv, kytara, basa a bicí - je z nás celá kapela.</p>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>
