@@ -24,7 +24,6 @@ namespace web {
                     
                 })
                 .then(() => {
-                    // console.log(this.jsonData);
                     this.showData();
                     this.initPlayer();
                     this.addEventListener();
@@ -45,6 +44,15 @@ namespace web {
                 }
                 
                 let row = this.jsonData[i];
+                console.log("ROW")
+                // @ts-ignore
+                console.log(row.Title);
+                // @ts-ignore
+                console.log(row.title);
+                // @ts-ignore
+                console.log(row.VideoId);
+                // @ts-ignore
+                console.log(row.videoId);
                 
                 let node = document.createElement('div');
                 node.classList.add('section__video__block__list__item');
@@ -54,7 +62,7 @@ namespace web {
                 imageDiv.classList.add('section__video__block__list__item__image');
                 let image = document.createElement('img');
                 // @ts-ignore
-                image.setAttribute("src", "https://img.youtube.com/vi/" + row.videoId + "/default.jpg");
+                image.setAttribute("src", "https://img.youtube.com/vi/" + row.VideoId + "/default.jpg");
                 image.setAttribute("alt", "");
 
                 imageDiv.appendChild(image);
@@ -66,7 +74,7 @@ namespace web {
                 let title = document.createElement('h3');
                 title.classList.add('section__video__block__list__item__text__title');
                 // @ts-ignore
-                title.innerHTML = row.title.slice(0, 20) + "...";
+                title.innerHTML = row.Title.slice(0, 20) + "...";
 
                 textDiv.appendChild(title);
                 node.appendChild(textDiv);
@@ -111,7 +119,7 @@ namespace web {
                 height: '360',
                 width: '640',
                 // @ts-ignore
-                videoId: this.jsonData[this.videoIndex].videoId,
+                videoId: this.jsonData[this.videoIndex].VideoId,
                 events: {
                     'onReady': this.onPlayerReady.bind(this),
                     'onStateChange': this.onPlayerStateChange.bind(this)
