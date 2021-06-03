@@ -1,0 +1,62 @@
+@model CMS.Web.Models.CalendarListsModel
+
+@{
+    ViewBag.Title = "Kalendář";
+    ViewBag.Description = "";
+    ViewBag.Image = "/assets/dist/images/kalendar_fotka.jpg";
+    ViewBag.ImageDescription = "Markéta Vodičková a Filip Vítů. Zpěv a hudba na svatbách, koncerty, firemní večírky atd. Přijedeme i k vám.";
+    
+    Layout = "_Layout";
+}
+<section class="section section__calendar">
+    <div class="container">
+        <h2 class="section__title">Nadcházející koncerty</h2>
+        <div class="section__calendar__block">
+            <div class="section__calendar__block__list">
+                @foreach (var item in Model.ActualData)
+                {
+                    <div class="section__calendar__block__list__item">
+                        <div class="section__calendar__block__list__item__cel">@item.DateTime.ToString("d. MMMM")</div>
+                        <div class="section__calendar__block__list__item__cel">@item.DateTime.ToString("h:mm") hodin</div>
+                        <div class="section__calendar__block__list__item__cel">@Html.DisplayFor(modelItem => item.Place)</div>
+                        <div class="section__calendar__block__list__item__cel">@Html.DisplayFor(modelItem => item.EventType.Name)</div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section__image-transition">
+    <div class="section__image-transition__back-image section__image-transition__back-image--calendar"></div>
+    <div class="container">
+        <div class="section__image-transition__main-image">
+            <img src="assets/dist/images/kalendar_delici_fotka.jpg" alt="Markéta Vodičková a Filip Vítů. Hrajeme na svatbách, koncertech, firemních akcích, vernisážích atd. Jsme zlínské duo." />
+        </div>
+    </div>
+</section>
+
+<section class="section section__calendar">
+    <div class="container">
+        <h2 class="section__title">Historie akcí</h2>
+        <div class="section__calendar__block">
+            <div class="section__calendar__block__list">
+                @foreach (var item in Model.OldData)
+                {
+                    <div class="section__calendar__block__list__item">
+                        <div class="section__calendar__block__list__item__cel">@item.DateTime.ToString("d. MMMM")</div>
+                        <div class="section__calendar__block__list__item__cel">@item.DateTime.ToString("h:mm") hodin</div>
+                        <div class="section__calendar__block__list__item__cel">@Html.DisplayFor(modelItem => item.Place)</div>
+                        <div class="section__calendar__block__list__item__cel">@Html.DisplayFor(modelItem => item.EventType.Name)</div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => { new web.MainController(); });
+    </script>
+}

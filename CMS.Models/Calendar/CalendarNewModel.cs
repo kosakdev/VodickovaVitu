@@ -11,5 +11,9 @@ namespace CMS.Models.Calendar
         public string Description { get; set; }
         [Display(Name="Datum")]
         public DateTime DateTime { get; set; }
+        public string Place { get; set; }
+        
+        public Guid BandCompositionId { get; set; }
+        public Guid EventTypeId { get; set; }
     }
 }

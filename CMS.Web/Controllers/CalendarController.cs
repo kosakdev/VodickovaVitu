@@ -4,24 +4,30 @@ using System.Threading.Tasks;
 using CMS.BL.Facades;
 using CMS.DAL;
 using CMS.DAL.Entities;
+using CMS.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CMS.Web.Controllers
 {
-    public class EventController : Controller
+    public class CalendarController : Controller
     {
-        private readonly EventFacade _eventFacade;
+        private readonly CalendarFacade _calendarFacade;
 
-        public EventController(EventFacade eventFacade)
+        public CalendarController(CalendarFacade calendarFacade)
         {
-            _eventFacade = eventFacade;
+            _calendarFacade = calendarFacade;
         }
         
         [Route("kalendar")]
         public async Task<IActionResult> Index()
         {
-            return View(await _eventFacade.GetAll());
+            var item = new CalendarListsModel
+            {
+                ActualData = await _calendarFacade.GetAllNew(),
+                OldData = await _calendarFacade.GetAllOld()
+            };
+            return View(item);
         }
         
         public async Task<IActionResult> Details(Guid? id)
@@ -31,7 +37,7 @@ namespace CMS.Web.Controllers
                 return NotFound();
             }
 
-            var eventItem = await _eventFacade.GetById(id.Value);
+            var eventItem = await _calendarFacade.GetById(id.Value);
             if (eventItem == null)
             {
                 return NotFound();

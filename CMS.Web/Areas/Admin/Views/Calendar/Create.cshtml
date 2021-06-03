@@ -24,6 +24,21 @@
         <span asp-validation-for="DateTime" class="text-danger"></span>
     </div>
     <div class="form-group">
+        <label asp-for="Place" class="control-label"></label>
+        <input asp-for="Place" class="form-control" />
+        <span asp-validation-for="Place" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BandCompositionId" class="control-label"></label>
+        <select asp-for="BandCompositionId" asp-items="ViewBag.bandComposition" class="form-control" ></select>
+        <span asp-validation-for="BandCompositionId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EventTypeId" class="control-label"></label>
+        <select asp-for="EventTypeId" asp-items="ViewBag.eventType" class="form-control" ></select>
+        <span asp-validation-for="EventTypeId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
         <input type="submit" value="Save" class="btn btn-primary" />
     </div>
 </form>

@@ -1,11 +1,10 @@
-﻿@model ICollection<CMS.Models.Calendar.CalendarListModel>
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@model IEnumerable<CMS.Models.Calendar.CalendarListModel>
 
 @{
     ViewBag.Title = "Vypis";
 }
 
-<a asp-action="Create" class="btn btn-outline-dark">Create Artist</a>
+<a asp-action="Create" class="btn btn-outline-dark">Vytvořit událost</a>
 
 <h2>@ViewData["Title"]</h2>
 
@@ -22,11 +21,11 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.Title)</td>
+            <td>@item.Title</td>
             <td>@item.Description</td>
             <td>@item.DateTime</td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.">Edit</a> 
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
                 @Html.DisplayText("|")
                 @* <a asp-action="Details" asp-route-id="@item.Id">Detail</a> *@
                 @* @Html.DisplayText("|") *@
