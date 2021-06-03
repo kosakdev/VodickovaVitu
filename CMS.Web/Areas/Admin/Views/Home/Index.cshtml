@@ -1,6 +1,41 @@
 @{
     ViewBag.Title = "Home";
-    Layout = "_AdminLayout";
 }
 
-<h2>HomePage</h2>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Hudba</h5>
+                <p class="card-text">Skladby na stránce co hrajeme</p>
+                <a asp-area="Admin" asp-controller="Music" asp-action="Index" class="btn btn-primary">Hudba</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Typ události</h5>
+                <p class="card-text">Typy události akcí</p>
+                <a asp-area="Admin" asp-controller="EventType" asp-action="Index" class="btn btn-primary">Typ události</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Kalendář</h5>
+                <p class="card-text">Úprava událostí</p>
+                <a asp-area="Admin" asp-controller="Calendar" asp-action="Index" class="btn btn-primary">Kalendář</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Složení kapely</h5>
+                <p class="card-text">Složení kapely</p>
+                <a asp-area="Admin" asp-controller="BandComposition" asp-action="Index" class="btn btn-primary">Kapela</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,10 +8,12 @@ namespace CMS.Web.Controllers
     public class ArticleController : Controller
     {
         private readonly ArticleFacade _articleFacade;
+        private readonly BandCompositionFacade _bandCompositionFacade;
 
-        public ArticleController(ArticleFacade articleFacade)
+        public ArticleController(ArticleFacade articleFacade, BandCompositionFacade bandCompositionFacade)
         {
             _articleFacade = articleFacade;
+            _bandCompositionFacade = bandCompositionFacade;
         }
         
         public async Task<IActionResult> Index()
@@ -38,7 +40,8 @@ namespace CMS.Web.Controllers
         [Route("onas")]
         public async Task<IActionResult> AboutUs()
         {
-            return View();
+            var item = await _bandCompositionFacade.GetAll();
+            return View(item);
         }
     }
 }

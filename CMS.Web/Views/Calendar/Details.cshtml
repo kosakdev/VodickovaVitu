@@ -1,0 +1,26 @@
+@model CMS.Models.Calendar.CalendarDetailModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>EventEntity</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateTime)      
+        </dt> 
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

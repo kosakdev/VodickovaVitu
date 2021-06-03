@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Threading.Tasks;
 using CMS.BL.Facades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -17,9 +18,13 @@ namespace CMS.Web.Controllers
             _calendarFacade = calendarFacade;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var item = new HomePageModel
+            {
+                CalendarList = await _calendarFacade.GetCountActual(3)
+            };
+            return View(item);
         }
 
         public IActionResult Privacy()

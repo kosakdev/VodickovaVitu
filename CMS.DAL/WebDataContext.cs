@@ -14,13 +14,7 @@ namespace CMS.DAL
             
         }
         
-        public virtual DbSet<ArticleEntity> Article { get; set; }
-        public virtual DbSet<CategoryEntity> Category { get; set; }
-        public virtual DbSet<TagEntity> Tag { get; set; }
-        public virtual DbSet<EventEntity> Event { get; set; }
-        public virtual DbSet<GalleryEntity> Gallery { get; set; }
-        public virtual DbSet<NewsEntity> News { get; set; }
-        public virtual DbSet<MenuItemEntity> MenuItem { get; set; }
         public virtual DbSet<CalendarEntity> Calendar { get; set; }
+        public virtual DbSet<MusicEntity> Music { get; set; }
     }
 }

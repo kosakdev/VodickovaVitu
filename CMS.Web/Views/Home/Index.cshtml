@@ -1,4 +1,6 @@
-﻿@{
+﻿@model HomePageModel
+
+@{
     ViewBag.Title = "Markéta Vodičková <span class='new-line'>& Filip Vítů</span>";
     
     Layout = "_MainPageLayout";
@@ -15,37 +17,19 @@
         <div class="section__simple-calendar__block">
             <div class="section__simple-calendar__block__data">
                 <h2 class="section__title section__simple-calendar__block__data__title">Hrajeme</h2>
-                
-                <div class="section__simple-calendar__block__data__item">
-                    <div class="section__simple-calendar__block__data__item__date">
-                        10
+                @foreach (var item in Model.CalendarList)
+                {
+                    <div class="section__simple-calendar__block__data__item">
+                        <div class="section__simple-calendar__block__data__item__date">
+                            @item.DateTime.ToString("dd")
+                        </div>
+                        <div class="section__simple-calendar__block__data__item__month-year">
+                            <div class="section__simple-calendar__block__data__item__month-year__month">@item.DateTime.ToString("MMMM")</div>
+                            <div class="section__simple-calendar__block__data__item__month-year__year">@item.DateTime.ToString("yyyy")</div>
+                        </div>
+                        <div class="section__simple-calendar__block__data__item__city">@item.Place</div>
                     </div>
-                    <div class="section__simple-calendar__block__data__item__month-year">
-                        <div class="section__simple-calendar__block__data__item__month-year__month">Listopad</div>
-                        <div class="section__simple-calendar__block__data__item__month-year__year">2020</div>
-                    </div>
-                    <div class="section__simple-calendar__block__data__item__city">Aš</div>
-                </div>
-                <div class="section__simple-calendar__block__data__item">
-                    <div class="section__simple-calendar__block__data__item__date">
-                        10
-                    </div>
-                    <div class="section__simple-calendar__block__data__item__month-year">
-                        <div class="section__simple-calendar__block__data__item__month-year__month">Prosinec</div>
-                        <div class="section__simple-calendar__block__data__item__month-year__year">2020</div>
-                    </div>
-                    <div class="section__simple-calendar__block__data__item__city">Otrokovice</div>
-                </div>
-                <div class="section__simple-calendar__block__data__item">
-                    <div class="section__simple-calendar__block__data__item__date">
-                        10
-                    </div>
-                    <div class="section__simple-calendar__block__data__item__month-year">
-                        <div class="section__simple-calendar__block__data__item__month-year__month">Červenec</div>
-                        <div class="section__simple-calendar__block__data__item__month-year__year">2020</div>
-                    </div>
-                    <div class="section__simple-calendar__block__data__item__city">Valašské Meziříčí</div>
-                </div>
+                }
             </div>
             <div class="section__simple-calendar__block__image">
                 <img class="section__simple-calendar__block__image__img" src="assets/dist/images/hrajeme2.jpg" alt="Markéta Vodičková a Filip Vítů. Kytara a zpěv. Zlín. Svatby, koncerty, vernisáže.">
