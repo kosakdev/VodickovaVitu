@@ -1,0 +1,20 @@
+@{
+    ViewBag.Title = "Odesláno";
+    ViewBag.Description = "Mail se podařilo odeslat";
+    ViewBag.Image = "/assets/dist/images/kontakt_fotka.jpg";
+    ViewBag.ImageDescription = "Markéta Vodičková a Filip Vítů. Zlínské duo. Zlínská kapela na svatby, vernisáže, firemní akce.";
+    
+    Layout = "_Layout";
+}
+
+<section class="section section__simple-text">
+    <div class="container">
+        <p class="section__simple-text__text">Mail se podařilo odeslat</p>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => { new web.MainController(); });
+    </script>
+}
