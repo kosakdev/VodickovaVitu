@@ -1,0 +1,33 @@
+@model ICollection<CMS.Models.EventType.EventTypeListModel>
+
+@{
+    ViewBag.Title = "Vypis";
+}
+
+<a asp-action="Create" class="btn btn-outline-dark">Vytvořit typ udalosti</a>
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                @Html.DisplayText("|")
+                @* <a asp-action="Details" asp-route-id="@item.Id">Detail</a> *@
+                @* @Html.DisplayText("|") *@
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
