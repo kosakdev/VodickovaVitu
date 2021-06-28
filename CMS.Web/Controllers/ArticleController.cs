@@ -21,14 +21,14 @@ namespace CMS.Web.Controllers
             return View(await _articleFacade.GetAll());
         }
         
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(string url)
         {
-            if (id == null)
+            if (url == "")
             {
                 return NotFound();
             }
 
-            var article = await _articleFacade.GetById(id.Value);
+            var article = await _articleFacade.GetByUrl(url);
             if (article == null)
             {
                 return NotFound();

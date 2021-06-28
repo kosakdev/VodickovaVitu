@@ -13,8 +13,5 @@ namespace CMS.DAL.Entities
         public string Text { get; set; }
         public bool Draft { get; set; }
         public PageType PageType { get; set; }
-        
-        public ICollection<CategoryEntity> Categories { get; set; }
-        public ICollection<TagEntity> Tags { get; set; }
     }
 }

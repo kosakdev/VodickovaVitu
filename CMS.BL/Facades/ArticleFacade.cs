@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using AutoMapper;
 using CMS.DAL.Entities;
 using CMS.DAL.Reporitories;
@@ -12,6 +13,12 @@ namespace CMS.BL.Facades
         public ArticleFacade(ArticleRepository repository, IMapper mapper) 
             : base(repository, mapper)
         {
+        }
+        
+        public virtual async Task<ArticleDetailModel> GetByUrl(string url)
+        {
+            var entity = await Repository.GetByUrl(url);
+            return Mapper.Map<ArticleDetailModel>(entity);
         }
     }
 }
