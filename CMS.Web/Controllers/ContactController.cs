@@ -16,19 +16,24 @@ namespace CMS.Web.Controllers
         private readonly EventTypeFacade _eventTypeFacade;
         private readonly IEmailSender _emailSender;
         private readonly IConfiguration _configuration;
+        private readonly ArticleFacade _articleFacade;
 
-        public ContactController(BandCompositionFacade bandCompositionFacade, EventTypeFacade eventTypeFacade, IEmailSender emailSender, IConfiguration configuration)
+        public ContactController(BandCompositionFacade bandCompositionFacade, EventTypeFacade eventTypeFacade, 
+            IEmailSender emailSender, IConfiguration configuration, ArticleFacade articleFacade)
         {
             _bandCompositionFacade = bandCompositionFacade;
             _eventTypeFacade = eventTypeFacade;
             _emailSender = emailSender;
             _configuration = configuration;
+            _articleFacade = articleFacade;
         }
         [HttpGet("kontakt")]
         public async Task<IActionResult> Index()
         {
             ViewBag.bandComposition = new SelectList(await _bandCompositionFacade.GetAll(), "Id", "Title", null);
             ViewBag.eventType = new SelectList(await _eventTypeFacade.GetAll(), "Id", "Name", null);
+
+            ViewBag.contactInfo = await _articleFacade.GetByUrl("contact-info");
 
             return View();
         }

@@ -74,9 +74,7 @@
     <div class="container">
         <div class="section__contact__block">
             <div class="section__contact__block__text-block">
-                <p>vodickova.vitu@gmail.com</p>
-                <p>Filip Vítů <span class="section__contact__block__text-block__text--number">+420 773 220 195</span></p>
-                <p>Markéta Vodičková <span class="section__contact__block__text-block__text--number">+420 737 542 418</span></p>
+                @Html.Raw(@ViewBag.contactInfo.Text)
             </div>
             <div class="section__contact__block__image">
                 <img src="~/assets/dist/images/kontakt_delici_fotka.jpg" alt="Markéta Vodičková a Filip Vítů." />

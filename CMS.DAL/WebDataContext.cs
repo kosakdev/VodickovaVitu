@@ -14,6 +14,8 @@ namespace CMS.DAL
             
         }
         
+        public virtual DbSet<ArticleEntity> Article { get; set; }
+        
         public virtual DbSet<CalendarEntity> Calendar { get; set; }
         public virtual DbSet<MusicEntity> Music { get; set; }
     }
