@@ -1,10 +1,15 @@
 using System;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using CMS.BL.Facades;
 using CMS.Models.Calendar;
 using CMS.Models.Music;
+using CMS.Web.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,17 +21,50 @@ namespace CMS.Web.Areas.Admin.Controllers
     {
         private readonly MusicFacade _musicFacade;
         private readonly IMapper _mapper;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public MusicController(MusicFacade musicFacade, IMapper mapper)
+        public MusicController(MusicFacade musicFacade, IMapper mapper, IWebHostEnvironment webHostEnvironment)
         {
             _musicFacade = musicFacade;
             _mapper = mapper;
+            _webHostEnvironment = webHostEnvironment;
         }
         
         public async Task<IActionResult> Index()
         {
             var items = await _musicFacade.GetAll();
             return View(items);
+        }
+        
+        private async Task<bool> UploadFile(IFormFile file)
+        {
+            if (file.Length <= 0) return false;
+            
+            var filename = "Repertoar-Marketa-Vodickova-Filip-Vitu" + "." + file.FileName.Split('.').Last();
+            var filePath = Path.Combine(_webHostEnvironment.WebRootPath, "whatweplay", filename);
+
+            await using var stream = System.IO.File.Create(filePath);
+            await file.CopyToAsync(stream);
+
+            return true;
+        }
+        
+        public IActionResult UpdateFile()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateFile(FileModel item)
+        {
+            if (ModelState.IsValid)
+            {
+                await UploadFile(item.FormFile);
+                
+                return RedirectToAction(nameof(Index), "Music", new {area="Admin"});
+            }
+            return View(item);
         }
 
         public IActionResult Create()

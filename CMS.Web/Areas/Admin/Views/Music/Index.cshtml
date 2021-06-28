@@ -4,7 +4,13 @@
     ViewBag.Title = "Výpis songů";
 }
 
-<a asp-action="Create" class="btn btn-outline-dark">Add song</a>
+<p>Aktuální repetoár <a href="~/whatweplay/Repertoar-Marketa-Vodickova-Filip-Vitu.pdf">PDF</a>.</p>
+
+<a asp-action="UpdateFile" class="btn btn-outline-dark">Nahrát nový soubor</a>
+
+<br />
+
+<a asp-action="Create" class="btn btn-outline-dark">Přidat skladbu do přehrávače</a>
 
 <h2>@ViewData["Title"]</h2>
 
