@@ -12,16 +12,12 @@
     <input type="hidden" asp-for="Id" />
     <input type="hidden" asp-for="Draft" />
     <input type="hidden" asp-for="PageType" />
+    <input type="hidden" asp-for="Url" />
     <input type="hidden" asp-for="PublicationDateTime" />
     <div class="form-group">
         <label asp-for="Title" class="control-label"></label>
         <input asp-for="Title" class="form-control" />
         <span asp-validation-for="Title" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Url" class="control-label"></label>
-        <input asp-for="Url" class="form-control" />
-        <span asp-validation-for="Url" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Description" class="control-label"></label>
