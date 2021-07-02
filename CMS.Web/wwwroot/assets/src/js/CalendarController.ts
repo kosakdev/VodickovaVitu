@@ -40,7 +40,7 @@ namespace web {
             this.previous = this.previous + 1;
         }
         
-        private GetNext(url, list, button) {
+        private GetNext(url: string, list: HTMLDivElement, button: HTMLButtonElement) {
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -57,13 +57,11 @@ namespace web {
                 });
         }
         
-        private HideButton(buttonElement) {
+        private HideButton(buttonElement: HTMLButtonElement) {
             buttonElement.style.display = 'none';
         }
         
-        private ShowHtml(listElement) {
-            
-
+        private ShowHtml(listElement: HTMLDivElement) {
             for (let i = 0; i < this.jsonData.length; i++) {
                 let row = this.jsonData[i];
                 
