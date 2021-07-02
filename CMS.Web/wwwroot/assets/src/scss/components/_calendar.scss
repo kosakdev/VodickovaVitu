@@ -1,6 +1,8 @@
 .section__calendar {
   &__block {
+    text-align: right;
     &__list {
+      text-align: left;
       &__item { // line
         padding-bottom: 5px;
         margin-bottom: 20px;
@@ -29,7 +31,17 @@
       }
     }
     &__button {
-      
+      background: none;
+      border: 0;
+      font-size: $font-size;
+      font-family: $font;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #000000;
     }
   }
 }

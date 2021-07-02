@@ -35,7 +35,7 @@
 
     <ItemGroup>
       <Folder Include="Migrations" />
-      <Folder Include="wwwroot\assets\src\images" />
+      <Folder Include="wwwroot\assets\src\images\social" />
       <Folder Include="wwwroot\uploads" />
       <Folder Include="wwwroot\whatweplay" />
     </ItemGroup>

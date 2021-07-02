@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using CMS.BL.Facades;
 using CMS.DAL;
@@ -44,6 +45,20 @@ namespace CMS.Web.Controllers
             }
 
             return View(eventItem);
+        }
+
+        public async Task<string> GetNext(int skip)
+        {
+            var items = await _calendarFacade.GetAllNew(skip);
+
+            return JsonSerializer.Serialize(items); 
+        }
+        
+        public async Task<string> GetPrevious(int skip)
+        {
+            var items = await _calendarFacade.GetAllOld(skip);
+
+            return JsonSerializer.Serialize(items); 
         }
     }
 }

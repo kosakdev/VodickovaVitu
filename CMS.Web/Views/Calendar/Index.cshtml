@@ -10,9 +10,9 @@
 }
 <section class="section section__calendar">
     <div class="container">
-        <h2 class="section__title">Nadcházející koncerty</h2>
+        <h2 class="section__title">Plánované koncerty</h2>
         <div class="section__calendar__block">
-            <div class="section__calendar__block__list">
+            <div class="section__calendar__block__list" id="coming-data">
                 @foreach (var item in Model.ActualData)
                 {
                     <div class="section__calendar__block__list__item">
@@ -23,6 +23,10 @@
                     </div>
                 }
             </div>
+            @if (Model.ActualData.Count() == 5)
+            {
+                <button id="coming-show-more" class="section__calendar__block__button">další</button>
+            }
         </div>
     </div>
 </section>
@@ -40,7 +44,7 @@
     <div class="container">
         <h2 class="section__title">Historie akcí</h2>
         <div class="section__calendar__block">
-            <div class="section__calendar__block__list">
+            <div class="section__calendar__block__list" id="previous-data">
                 @foreach (var item in Model.OldData)
                 {
                     <div class="section__calendar__block__list__item">
@@ -51,6 +55,10 @@
                     </div>
                 }
             </div>
+            @if (Model.OldData.Count() == 5)
+            {
+                <button id="previous-show-more" class="section__calendar__block__button">další</button>
+            }
         </div>
     </div>
 </section>
@@ -58,5 +66,6 @@
 @section Scripts {
     <script>
         document.addEventListener("DOMContentLoaded", () => { new web.MainController(); });
+        document.addEventListener("DOMContentLoaded", () => { new web.CalendarController(); });
     </script>
 }
