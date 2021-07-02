@@ -55,7 +55,8 @@ namespace CMS.Web.Controllers
                                      $"<p><strong>Telefon:</strong> {item.MobileNumber}</p>" +
                                      $"<p><strong>Email:</strong> {item.Email}</p>" +
                                      $"<p><strong>Sestava:</strong> {(await _bandCompositionFacade.GetById(item.BandCompositionId)).Title}</p>" +
-                                     $"<p><strong>Typ akce:</strong> {(await _eventTypeFacade.GetById(item.EventTypeId)).Name}</p>";
+                                     $"<p><strong>Typ akce:</strong> {(await _eventTypeFacade.GetById(item.EventTypeId)).Name}</p>" +
+                                     $"<p><strong>Popis:</strong> {item.Notes}</p>";
                     await _emailSender.SendEmailAsync(_configuration["ContactFormEmail"], "Vzkaz z webu", message);
                 }
                 catch (DbUpdateConcurrencyException)
@@ -71,7 +72,11 @@ namespace CMS.Web.Controllers
         [HttpGet("email-odeslan")]
         public async Task<IActionResult> Mail()
         {
-            return View();
+            var item = new SendMailModel()
+            {
+                Article = await _articleFacade.GetByUrl("send-email")
+            };
+            return View(item);
         }
     }
 }

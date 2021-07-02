@@ -1,3 +1,5 @@
+@model SendMailModel
+
 @{
     ViewBag.Title = "Odesláno";
     ViewBag.Description = "Mail se podařilo odeslat";
@@ -9,7 +11,7 @@
 
 <section class="section section__simple-text">
     <div class="container">
-        <p class="section__simple-text__text">Mail se podařilo odeslat</p>
+        @Html.Raw(@Model.Article.Text)
     </div>
 </section>
 
