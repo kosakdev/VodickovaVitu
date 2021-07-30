@@ -35,6 +35,7 @@
 
     <ItemGroup>
       <Folder Include="Migrations" />
+      <Folder Include="wwwroot\assets\src\images\icons" />
       <Folder Include="wwwroot\assets\src\images\social" />
       <Folder Include="wwwroot\assets\vendor\magnific-popup" />
       <Folder Include="wwwroot\uploads" />
