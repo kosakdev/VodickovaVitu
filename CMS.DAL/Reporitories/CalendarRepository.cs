@@ -19,7 +19,8 @@ namespace CMS.DAL.Reporitories
         public override async Task<IList<CalendarEntity>> GetAll()
         {
             await using var context = _contextFactory();
-            return await context.Set<CalendarEntity>().Include(i => i.EventType).ToListAsync();
+            return await context.Set<CalendarEntity>().Include(i => i.EventType)
+                .OrderByDescending(o => o.DateTime).ToListAsync();
         }
 
         public async Task<IList<CalendarEntity>> GetAllNew(int skip=0)
@@ -28,7 +29,7 @@ namespace CMS.DAL.Reporitories
             return await context.Set<CalendarEntity>()
                 .Include(i => i.EventType)
                 .OrderBy(o => o.DateTime)
-                .Where(w => w.DateTime >= DateTime.Today).Skip(skip).Take(5).ToListAsync();
+                .Where(w => w.DateTime >= DateTime.Today).Skip(skip).ToListAsync();
         }
         
         public async Task<IList<CalendarEntity>> GetCountActual(int count)
@@ -45,7 +46,7 @@ namespace CMS.DAL.Reporitories
             await using var context = _contextFactory();
             return await context.Set<CalendarEntity>()
                 .Include(i => i.EventType)
-                .OrderBy(o => o.DateTime)
+                .OrderByDescending(o => o.DateTime)
                 .Where(w => w.DateTime < DateTime.Today).Skip(skip).Take(5).ToListAsync();
         }
     }

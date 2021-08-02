@@ -4,17 +4,32 @@
     &__list {
       text-align: left;
       &__item { // line
-        padding-bottom: 5px;
-        margin-bottom: 20px;
-        border-bottom: 2px solid black;
-        display: grid;
-        grid-template-columns: 24% 24% 24% 24%;
-        grid-gap: 10px;
-        align-items: center;
-        
-        @include phone {
-          grid-template-columns: 49% 49%;
+        &__row {
+          padding-bottom: 5px;
+          margin-top: 20px;
+          border-bottom: 2px solid black;
+          display: grid;
+          grid-template-columns: 24% 24% 24% 24%;
+          grid-gap: 10px;
+          align-items: center;
+
+          @include phone {
+            grid-template-columns: 49% 49%;
+          }
         }
+        
+        &__detail {
+          background-image: url("../images/kalendar_delici_pozadi.jpg");
+          padding: 10px;
+          color: white;
+          font-family: $font;
+          font-size: $font-size;
+          display: none;
+          
+          &--show {
+            display: block;
+          }
+        }        
         
         &__cel {
           text-transform: uppercase;

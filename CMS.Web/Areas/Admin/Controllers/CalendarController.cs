@@ -51,7 +51,6 @@ namespace CMS.Web.Areas.Admin.Controllers
 
         public async Task<IActionResult> Create()
         {
-            ViewBag.bandComposition = new SelectList(await _bandCompositionFacade.GetAll(), "Id", "Title", null);
             ViewBag.eventType = new SelectList(await _eventTypeFacade.GetAll(), "Id", "Name", null);
             return View();
         }
@@ -77,7 +76,6 @@ namespace CMS.Web.Areas.Admin.Controllers
 
             var item = await _calendarFacade.GetById(id.Value);
             
-            ViewBag.bandComposition = new SelectList(await _bandCompositionFacade.GetAll(), "Id", "Title", item.BandCompositionId);
             ViewBag.eventType = new SelectList(await _eventTypeFacade.GetAll(), "Id", "Name", item.EventTypeId);
             
             return View(_mapper.Map<CalendarUpdateModel>(item));

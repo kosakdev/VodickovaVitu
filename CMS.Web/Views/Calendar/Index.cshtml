@@ -5,28 +5,42 @@
     ViewBag.Description = "";
     ViewBag.Image = "/assets/dist/images/kalendar_fotka.jpg";
     ViewBag.ImageDescription = "Markéta Vodičková a Filip Vítů. Zpěv a hudba na svatbách, koncerty, firemní večírky atd. Přijedeme i k vám.";
+
+    var cursorStyle = "default";
     
     Layout = "_Layout";
 }
 <section class="section section__calendar">
     <div class="container">
-        <h2 class="section__title">Plánované koncerty</h2>
+        <h2 class="section__title">Plánované akce</h2>
         <div class="section__calendar__block">
             <div class="section__calendar__block__list" id="coming-data">
                 @foreach (var item in Model.ActualData)
                 {
-                    <div class="section__calendar__block__list__item">
-                        <div class="section__calendar__block__list__item__cel">@item.DateTime.ToString("d. MMMM")</div>
-                        <div class="section__calendar__block__list__item__cel">@item.DateTime.ToString("H:mm") hodin</div>
-                        <div class="section__calendar__block__list__item__cel">@Html.DisplayFor(modelItem => item.Place)</div>
-                        <div class="section__calendar__block__list__item__cel">@Html.DisplayFor(modelItem => item.EventType.Name)</div>
+                    @if (!string.IsNullOrEmpty(@item.Description))
+                    {
+                        cursorStyle = "pointer";
+                    }
+                    else
+                    {
+                        cursorStyle = "default";
+                    }
+                    <div class="section__calendar__block__list__item" data-id="@item.Id">
+                        <div class="section__calendar__block__list__item__row" style="cursor: @cursorStyle">
+                            <div class="section__calendar__block__list__item__cel">@item.DateTime.ToString("d. MMMM yyyy")</div>
+                            <div class="section__calendar__block__list__item__cel">@item.DateTime.ToString("H:mm") hodin</div>
+                            <div class="section__calendar__block__list__item__cel">@Html.DisplayFor(modelItem => item.Place)</div>
+                            <div class="section__calendar__block__list__item__cel">@Html.DisplayFor(modelItem => item.EventType.Name)</div>
+                        </div>
+                        @if (!string.IsNullOrEmpty(@item.Description))
+                        {
+                            <div class="section__calendar__block__list__item__detail" id="@item.Id">
+                                <p>@item.Description</p>
+                            </div>
+                        }
                     </div>
                 }
             </div>
-            @if (Model.ActualData.Count() == 5)
-            {
-                <button id="coming-show-more" class="section__calendar__block__button">další</button>
-            }
         </div>
     </div>
 </section>
@@ -35,7 +49,7 @@
     <div class="section__image-transition__back-image section__image-transition__back-image--calendar"></div>
     <div class="container">
         <div class="section__image-transition__main-image">
-            <img src="assets/dist/images/kalendar_delici_fotka.jpg" alt="Markéta Vodičková a Filip Vítů. Hrajeme na svatbách, koncertech, firemních akcích, vernisážích atd. Jsme zlínské duo." />
+            <img src="~/assets/dist/images/kalendar_delici_fotka.jpg" alt="Markéta Vodičková a Filip Vítů. Hrajeme na svatbách, koncertech, firemních akcích, vernisážích atd. Jsme zlínské duo." />
         </div>
     </div>
 </section>
@@ -47,11 +61,27 @@
             <div class="section__calendar__block__list" id="previous-data">
                 @foreach (var item in Model.OldData)
                 {
-                    <div class="section__calendar__block__list__item">
-                        <div class="section__calendar__block__list__item__cel">@item.DateTime.ToString("d. MMMM")</div>
-                        <div class="section__calendar__block__list__item__cel">@item.DateTime.ToString("H:mm") hodin</div>
-                        <div class="section__calendar__block__list__item__cel">@Html.DisplayFor(modelItem => item.Place)</div>
-                        <div class="section__calendar__block__list__item__cel">@Html.DisplayFor(modelItem => item.EventType.Name)</div>
+                    @if (!string.IsNullOrEmpty(@item.Description))
+                    {
+                        cursorStyle = "pointer";
+                    }
+                    else
+                    {
+                        cursorStyle = "default";
+                    }
+                    <div class="section__calendar__block__list__item" data-id="@item.Id">
+                        <div class="section__calendar__block__list__item__row" style="cursor: @cursorStyle">
+                            <div class="section__calendar__block__list__item__cel">@item.DateTime.ToString("d. MMMM yyyy")</div>
+                            <div class="section__calendar__block__list__item__cel">@item.DateTime.ToString("H:mm") hodin</div>
+                            <div class="section__calendar__block__list__item__cel">@Html.DisplayFor(modelItem => item.Place)</div>
+                            <div class="section__calendar__block__list__item__cel">@Html.DisplayFor(modelItem => item.EventType.Name)</div>
+                        </div>
+                        @if (!string.IsNullOrEmpty(@item.Description))
+                        {
+                            <div class="section__calendar__block__list__item__detail" id="@item.Id">
+                                <p>@item.Description</p>
+                            </div>
+                        }
                     </div>
                 }
             </div>

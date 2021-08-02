@@ -16,6 +16,8 @@ namespace web {
         
         constructor() {
             this.InitElements();
+            
+            this.addEventListener();
         }
         
         private InitElements() {
@@ -24,8 +26,12 @@ namespace web {
             this.previousList = document.getElementById('previous-data');
             this.previousButton = document.getElementById('previous-show-more');
 
-            this.comingButton.addEventListener('click', this.ComingData.bind(this), false);
-            this.previousButton.addEventListener('click', this.PreviousData.bind(this), false);
+            if (this.comingButton != null) {
+                this.comingButton.addEventListener('click', this.ComingData.bind(this), false);
+            }
+            if (this.previousButton != null) {
+                this.previousButton.addEventListener('click', this.PreviousData.bind(this), false);
+            }
         }
         
         private ComingData() {
@@ -98,6 +104,22 @@ namespace web {
                 node.appendChild(cel4);
                 
                 listElement.appendChild(node);
+            }
+        }
+
+        private addEventListener() {            
+            const elements = document.getElementsByClassName("section__calendar__block__list__item");
+
+            for (let i = 0; i < elements.length; i++) {
+                // @ts-ignore
+                elements[i].addEventListener('click', this.eventHandler.bind(this, elements[i].dataset.id), false);
+            }
+        }
+        
+        private eventHandler(id: string) {
+            let element = document.getElementById(id);
+            if (element != null) {
+                element.classList.toggle("section__calendar__block__list__item__detail--show");
             }
         }
     }
