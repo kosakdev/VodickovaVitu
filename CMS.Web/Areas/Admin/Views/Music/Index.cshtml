@@ -1,7 +1,7 @@
 @model ICollection<CMS.Models.Music.MusicListModel>
 
 @{
-    ViewBag.Title = "Výpis songů";
+    ViewBag.Title = "Hudba v přehrávači";
 }
 
 <p>Aktuální repetoár <a href="~/whatweplay/Repertoar-Marketa-Vodickova-Filip-Vitu.pdf">PDF</a>.</p>
@@ -17,9 +17,8 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Date</th>
+        <th>Název</th>
+        <th>Popis</th>
         <th></th>
     </tr>
     </thead>
@@ -30,9 +29,9 @@
             <td>@item.Title)</td>
             <td>@item.VideoId</td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                <a asp-action="Edit" asp-route-id="@item.Id">Upravit</a> 
                 @Html.DisplayText("|")
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Smazat</a>
             </td>
         </tr>
     }

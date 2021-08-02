@@ -1,17 +1,17 @@
 @model ICollection<CMS.Models.EventType.EventTypeListModel>
 
 @{
-    ViewBag.Title = "Vypis";
+    ViewBag.Title = "Typy eventů";
 }
 
-<a asp-action="Create" class="btn btn-outline-dark">Vytvořit typ udalosti</a>
+<a asp-action="Create" class="btn btn-outline-dark">Vytvořit typ události</a>
 
 <h2>@ViewData["Title"]</h2>
 
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>Name</th>
+        <th>Název</th>
         <th></th>
     </tr>
     </thead>
@@ -21,11 +21,11 @@
         <tr>
             <td>@item.Name</td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                <a asp-action="Edit" asp-route-id="@item.Id">Upravit</a> 
                 @Html.DisplayText("|")
                 @* <a asp-action="Details" asp-route-id="@item.Id">Detail</a> *@
                 @* @Html.DisplayText("|") *@
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Smazat</a>
             </td>
         </tr>
     }

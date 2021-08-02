@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<CMS.Models.Calendar.CalendarListModel>
 
 @{
-    ViewBag.Title = "Vypis";
+    ViewBag.Title = "Události";
 }
 
 <a asp-action="Create" class="btn btn-outline-dark">Vytvořit událost</a>
@@ -21,7 +21,7 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.DateTime</td>
+            <td>@item.DateTime.ToString("dd. MM. yyyy HH:mm")</td>
             <td>@item.Place</td>
             <td>@item.Description</td>
             <td>

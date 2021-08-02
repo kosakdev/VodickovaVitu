@@ -13,3 +13,25 @@ LAYOUT
 .btn {
   margin-bottom: 5px;
 }
+
+.form-group {
+  margin-top: 5px;
+  &:last-of-type {
+    margin-top: 10px;
+  }
+}
+
+form {
+  img {
+    margin-top: 5px;
+  }
+}
+
+.navbar-nav {
+  align-items: center;
+}
+
+#logout {
+  width: 100px;
+  margin-bottom: 0;
+}

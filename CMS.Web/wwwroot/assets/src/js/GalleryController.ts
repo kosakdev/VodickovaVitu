@@ -5,10 +5,10 @@
 namespace web {
     export class GalleryController{
         constructor() {
-            this.InitGallery();
+            this.initGallery();
         }
         
-        private InitGallery(){
+        private initGallery(){
             // const elem = document.querySelector('.section__gallery__grid');
             // // @ts-ignore
             // let msnry  = new Masonry(elem, {

@@ -3,14 +3,17 @@ namespace web {
         private editor: any;
         
         constructor() {
-            console.log("LOG text");
-            this.Init();
+            this.init();
 
             document.querySelectorAll("input[type=submit]")[0]
-                .addEventListener('click', this.HandleSubmit.bind(this), false);
+                .addEventListener('click', this.handleSubmit.bind(this), false);
         }
         
-        private Init() {
+        private init() {
+            if (document.getElementById('editor-value') == null){
+                return;
+            }
+            
             // @ts-ignore
             this.editor = new Quill('#editor', {
                 modules: {
@@ -25,8 +28,7 @@ namespace web {
             });
         }
         
-        public HandleSubmit() {
-            console.info('handleSubmit called');
+        public handleSubmit() {
             // @ts-ignore
             document.getElementById('editor-value').value = this.editor.root.innerHTML;
         }

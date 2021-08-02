@@ -15,38 +15,38 @@ namespace web {
         private months = ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"]
         
         constructor() {
-            this.InitElements();
+            this.initElements();
             
             this.addEventListener();
         }
         
-        private InitElements() {
+        private initElements() {
             this.comingList = document.getElementById('coming-data');
             this.comingButton = document.getElementById('coming-show-more');
             this.previousList = document.getElementById('previous-data');
             this.previousButton = document.getElementById('previous-show-more');
 
             if (this.comingButton != null) {
-                this.comingButton.addEventListener('click', this.ComingData.bind(this), false);
+                this.comingButton.addEventListener('click', this.comingData.bind(this), false);
             }
             if (this.previousButton != null) {
-                this.previousButton.addEventListener('click', this.PreviousData.bind(this), false);
+                this.previousButton.addEventListener('click', this.previousData.bind(this), false);
             }
         }
         
-        private ComingData() {
+        private comingData() {
             let url = './calendar/GetNext?skip=' + (this.coming * this.skip).toString();
-            this.GetNext(url, this.comingList, this.comingButton);
+            this.getNext(url, this.comingList, this.comingButton);
             this.coming = this.coming + 1;
         }
         
-        private PreviousData(){
+        private previousData(){
             let url = './calendar/GetPrevious?skip=' + (this.previous * this.skip).toString();
-            this.GetNext(url, this.previousList, this.previousButton);
+            this.getNext(url, this.previousList, this.previousButton);
             this.previous = this.previous + 1;
         }
         
-        private GetNext(url: string, list: HTMLDivElement, button: HTMLButtonElement) {
+        private getNext(url: string, list: HTMLDivElement, button: HTMLButtonElement) {
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
@@ -55,19 +55,19 @@ namespace web {
                         this.jsonData.push(data[i]);
                     }
                     if (data.length <= this.skip) {
-                        this.HideButton(button);
+                        this.hideButton(button);
                     }
                 })
                 .then(() => {
-                    this.ShowHtml(list);
+                    this.showHtml(list);
                 });
         }
         
-        private HideButton(buttonElement: HTMLButtonElement) {
+        private hideButton(buttonElement: HTMLButtonElement) {
             buttonElement.style.display = 'none';
         }
         
-        private ShowHtml(listElement: HTMLDivElement) {
+        private showHtml(listElement: HTMLDivElement) {
             for (let i = 0; i < this.jsonData.length; i++) {
                 let row = this.jsonData[i];
                 
