@@ -3,15 +3,17 @@ using System;
 using CMS.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CMS.Web.Migrations
 {
     [DbContext(typeof(WebDataContext))]
-    partial class WebDataContextModelSnapshot : ModelSnapshot
+    [Migration("20210802140655_CalendarUpdate2")]
+    partial class CalendarUpdate2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -129,26 +131,6 @@ namespace CMS.Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Article");
-                });
-
-            modelBuilder.Entity("CMS.DAL.Entities.BandCompositionEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<string>("FileName")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BandComposition");
                 });
 
             modelBuilder.Entity("CMS.DAL.Entities.CalendarEntity", b =>
