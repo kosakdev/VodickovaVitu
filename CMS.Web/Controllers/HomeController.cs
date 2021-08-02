@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using CMS.BL.Facades;
 using Microsoft.AspNetCore.Mvc;
@@ -12,12 +13,14 @@ namespace CMS.Web.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly CalendarFacade _calendarFacade;
         private readonly ArticleFacade _articleFacade;
+        private readonly VideoFacade _videoFacade;
 
-        public HomeController(ILogger<HomeController> logger, CalendarFacade calendarFacade, ArticleFacade articleFacade)
+        public HomeController(ILogger<HomeController> logger, CalendarFacade calendarFacade, ArticleFacade articleFacade, VideoFacade videoFacade)
         {
             _logger = logger;
             _calendarFacade = calendarFacade;
             _articleFacade = articleFacade;
+            _videoFacade = videoFacade;
         }
 
         public async Task<IActionResult> Index()
@@ -25,7 +28,8 @@ namespace CMS.Web.Controllers
             var item = new HomePageModel
             {
                 CalendarList = await _calendarFacade.GetCountActual(3),
-                Article = await _articleFacade.GetByUrl("main-page")
+                Article = await _articleFacade.GetByUrl("main-page"),
+                Video = await _videoFacade.GetById(Guid.Parse("3274022f-a350-4d02-b753-2aafaedeffc1"))
             };
             return View(item);
         }

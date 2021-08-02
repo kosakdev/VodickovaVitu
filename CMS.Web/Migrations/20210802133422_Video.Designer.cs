@@ -3,15 +3,17 @@ using System;
 using CMS.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CMS.Web.Migrations
 {
     [DbContext(typeof(WebDataContext))]
-    partial class WebDataContextModelSnapshot : ModelSnapshot
+    [Migration("20210802133422_Video")]
+    partial class Video
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
