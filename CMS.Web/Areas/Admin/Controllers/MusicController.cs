@@ -41,7 +41,11 @@ namespace CMS.Web.Areas.Admin.Controllers
             if (file.Length <= 0) return false;
             
             var filename = "Repertoar-Marketa-Vodickova-Filip-Vitu" + "." + file.FileName.Split('.').Last();
-            var filePath = Path.Combine(_webHostEnvironment.WebRootPath, "whatweplay", filename);
+            var folderPath = Path.Combine(_webHostEnvironment.WebRootPath, "whatweplay");
+            if (!Directory.Exists(folderPath)) {
+                Directory.CreateDirectory(folderPath);
+            }
+            var filePath = Path.Combine(folderPath, filename);
 
             await using var stream = System.IO.File.Create(filePath);
             await file.CopyToAsync(stream);
