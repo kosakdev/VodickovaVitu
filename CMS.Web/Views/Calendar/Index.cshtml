@@ -35,7 +35,7 @@
                         @if (!string.IsNullOrEmpty(@item.Description))
                         {
                             <div class="section__calendar__block__list__item__detail" id="@item.Id">
-                                <p>@item.Description</p>
+                                <p>@Html.Raw(@item.Description)</p>
                             </div>
                         }
                     </div>
@@ -79,7 +79,7 @@
                         @if (!string.IsNullOrEmpty(@item.Description))
                         {
                             <div class="section__calendar__block__list__item__detail" id="@item.Id">
-                                <p>@item.Description</p>
+                                <p>@Html.Raw(@item.Description)</p>
                             </div>
                         }
                     </div>

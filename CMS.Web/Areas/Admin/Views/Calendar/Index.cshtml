@@ -1,7 +1,19 @@
-﻿@model IEnumerable<CMS.Models.Calendar.CalendarListModel>
+﻿@using System.Text.RegularExpressions
+@model IEnumerable<CMS.Models.Calendar.CalendarListModel>
 
 @{
     ViewBag.Title = "Události";
+}
+
+@{
+    void RemoveHtmlTags(string input)
+    {
+        if (!string.IsNullOrEmpty(input))
+        {
+            string output = Regex.Replace(input, "<[^>]*>", String.Empty);
+            <span>@output</span> // show input data
+        }
+    }
 }
 
 <a asp-action="Create" class="btn btn-outline-dark">Vytvořit událost</a>
@@ -23,7 +35,7 @@
         <tr>
             <td>@item.DateTime.ToString("dd. MM. yyyy HH:mm")</td>
             <td>@item.Place</td>
-            <td>@item.Description</td>
+            <td>@{RemoveHtmlTags(@item.Description);}</td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Upravit</a> 
                 @Html.DisplayText("|")
