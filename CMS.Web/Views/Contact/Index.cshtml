@@ -12,43 +12,44 @@
 <section class="section section__form">
     <div class="container">
         <h2 class="section__title">Poptávkový formulář</h2>
-        <form asp-action="SendMail">
+        <form asp-area="" asp-controller="Contact" asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="section__form__block">
                 <div class="section__form__block--column">
                     <div class="section__form__block__item">
                         <label class="section__calendar__block__list__item__label" asp-for="Name"></label>
                         <input class="section__calendar__block__list__item__input" asp-for="Name">
-                        <span asp-validation-for="Name" class="text-danger"></span>
+                        <span asp-validation-for="Name" class="section__calendar__block__list__item__error"></span>
                     </div>
                     <div class="section__form__block__item">
                         <label class="section__calendar__block__list__item__label" asp-for="Email"></label>
                         <input class="section__calendar__block__list__item__input" asp-for="Email">
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <span asp-validation-for="Email" class="section__calendar__block__list__item__error"></span>
                     </div>
                     <div class="section__form__block__item">
                         <label class="section__calendar__block__list__item__label" asp-for="DateTime"></label>
                         <input class="section__calendar__block__list__item__input" asp-for="DateTime">
-                        <span asp-validation-for="DateTime" class="text-danger"></span>
+                        <span asp-validation-for="DateTime" class="section__calendar__block__list__item__error"></span>
                     </div>
                     <div class="section__form__block__item">
                         <label class="section__calendar__block__list__item__label" asp-for="Place"></label>
                         <input class="section__calendar__block__list__item__input" asp-for="Place">
-                        <span asp-validation-for="Place" class="text-danger"></span>
+                        <span asp-validation-for="Place" class="section__calendar__block__list__item__error"></span>
                     </div>
                     <div class="section__form__block__item">
                         <label class="section__calendar__block__list__item__label" asp-for="EventTypeId"></label>
                         <select asp-for="EventTypeId" asp-items="ViewBag.eventType"></select>
-                        <span asp-validation-for="EventTypeId" class="text-danger"></span>
+                        <span asp-validation-for="EventTypeId" class="section__calendar__block__list__item__error"></span>
                     </div>
                     <div class="section__form__block__item">
                         <label class="section__calendar__block__list__item__label" asp-for="BandCompositionId"></label>
                         <select asp-for="BandCompositionId" asp-items="ViewBag.bandComposition"></select>
-                        <span asp-validation-for="BandCompositionId" class="text-danger"></span>
+                        <span asp-validation-for="BandCompositionId" class="section__calendar__block__list__item__error"></span>
                     </div>
                     <div class="section__form__block__item">
                         <label class="section__calendar__block__list__item__label" asp-for="MobileNumber"></label>
                         <input class="section__calendar__block__list__item__input" asp-for="MobileNumber">
-                        <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                        <span asp-validation-for="MobileNumber" class="section__calendar__block__list__item__error"></span>
                     </div>
                     <div class="section__form__block__item">
                     </div>
@@ -56,7 +57,7 @@
                 <div class="section__form__block__item">
                     <label class="section__calendar__block__list__item__label" asp-for="Notes">Další poznámky</label>
                     <textarea class="section__calendar__block__list__item__input" type="text" asp-for="Notes"></textarea>
-                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <span asp-validation-for="Notes" class="section__calendar__block__list__item__error"></span>
                 </div>
                 <div class="section__form__block__item">
                     <input type="submit" value="Odeslat">
@@ -87,4 +88,15 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => { new web.MainController(); });
     </script>
+}
+
+@section ErrorContent {
+    @if (ViewBag.Error != false)
+    {
+        <div class="error">
+            <div class="container">
+                <p class="error__text">Email se nepodařilo odeslat. Zkuste jej odeslat znovu.</p>
+            </div>
+        </div>
+    }
 }

@@ -1,0 +1,20 @@
+.error {
+  background-color: #D2042D;
+  padding: 30px 0;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  transition:opacity 300ms;
+  &__text {
+    font-size: 16px;
+    font-family: $font;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: white;
+  }
+}

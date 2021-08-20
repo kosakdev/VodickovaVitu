@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace CMS.Web.Controllers
 {
+    [Route("kontakt")]
     public class ContactController : Controller
     {
         private readonly BandCompositionFacade _bandCompositionFacade;
@@ -27,7 +28,7 @@ namespace CMS.Web.Controllers
             _configuration = configuration;
             _articleFacade = articleFacade;
         }
-        [HttpGet("kontakt")]
+        
         public async Task<IActionResult> Index()
         {
             ViewBag.bandComposition = new SelectList(await _bandCompositionFacade.GetAll(), "Id", "Title", null);
@@ -35,13 +36,22 @@ namespace CMS.Web.Controllers
 
             ViewBag.contactInfo = await _articleFacade.GetByUrl("contact-info");
 
+            ViewBag.Error = false;
+
             return View();
         }
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SendMail(ContactModel item)
+        public async Task<IActionResult> Index(ContactModel item)
         {
+            ViewBag.bandComposition = new SelectList(await _bandCompositionFacade.GetAll(), "Id", "Title", null);
+            ViewBag.eventType = new SelectList(await _eventTypeFacade.GetAll(), "Id", "Name", null);
+
+            ViewBag.contactInfo = await _articleFacade.GetByUrl("contact-info");
+
+            ViewBag.Error = true;
+            
             if (ModelState.IsValid)
             {
                 try
@@ -61,12 +71,12 @@ namespace CMS.Web.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    return RedirectToAction(nameof(Mail), "Contact", new {area=""});
+                    return View(item);
                 }
                 return RedirectToAction(nameof(Mail), "Contact", new {area=""});
             }
             
-            return RedirectToAction(nameof(Mail), "Contact", new {area=""});
+            return View(item);
         }
         
         [HttpGet("email-odeslan")]

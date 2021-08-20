@@ -13,6 +13,7 @@
     <partial name="LayoutParts/_Social" />
 </head>
 <body>
+@await RenderSectionAsync("ErrorContent", required: false)
 <header class="header">
     <partial name="LayoutParts/_Header" />
     <div class="header__content container">

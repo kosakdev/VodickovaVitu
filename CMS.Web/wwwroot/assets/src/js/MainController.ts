@@ -12,6 +12,8 @@ namespace web {
         constructor() {
             this.initMenu();
             this.initScrollMenu();
+            
+            this.hideErrorMessage();
         }
         
         private initMenu() {
@@ -50,6 +52,18 @@ namespace web {
                 this.menuBlock.classList.toggle("nav--active");
                 // this.headerText.classList.toggle('header__content--scrolled');
             }
+        }
+        
+        private hideErrorMessage() {
+            let item = document.getElementsByClassName("error");
+            
+            if (item.length > 0) {
+                setTimeout(this.hideElement, 3000, item[0]);
+            }
+        }
+        
+        private hideElement(element) {
+            element.style.display = "none";
         }
     }
 }
