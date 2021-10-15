@@ -60,6 +60,8 @@ namespace web {
                 })
                 .then(() => {
                     this.showHtml(list);
+                    this.removeEventListener();
+                    this.addEventListener();
                 });
         }
         
@@ -75,6 +77,14 @@ namespace web {
                 
                 let node = document.createElement('div');
                 node.classList.add('section__calendar__block__list__item');
+                node.setAttribute("data-id", row.Id);
+
+                let rowElement = document.createElement('div');
+                rowElement.classList.add('section__calendar__block__list__item__row');
+                
+                if (row.Description.toString() != "") {
+                    rowElement.style.cssText += 'cursor: pointer;';
+                }
                 
                 let cel1 = document.createElement('div');
                 cel1.classList.add('section__calendar__block__list__item__cel');
@@ -98,17 +108,34 @@ namespace web {
                 cel4.classList.add('section__calendar__block__list__item__cel');
                 cel4.innerHTML = row.EventType.Name.toString();
 
-                node.appendChild(cel1);
-                node.appendChild(cel2);
-                node.appendChild(cel3);
-                node.appendChild(cel4);
+                rowElement.appendChild(cel1);
+                rowElement.appendChild(cel2);
+                rowElement.appendChild(cel3);
+                rowElement.appendChild(cel4);
+
+                let detail = document.createElement('div');
+                detail.classList.add('section__calendar__block__list__item__detail');
+                detail.setAttribute("id", row.Id);
+                detail.innerHTML = row.Description.toString();
+                
+                node.appendChild(rowElement);
+                node.appendChild(detail);
                 
                 listElement.appendChild(node);
             }
         }
+        
+        private removeEventListener() {
+            let elements = document.getElementsByClassName("section__calendar__block__list__item");
+
+            for (let i = 0; i < elements.length; i++) {
+                let new_element = elements[i].cloneNode(true);
+                elements[i].parentNode.replaceChild(new_element, elements[i]);
+            }
+        }
 
         private addEventListener() {            
-            const elements = document.getElementsByClassName("section__calendar__block__list__item");
+            let elements = document.getElementsByClassName("section__calendar__block__list__item");
 
             for (let i = 0; i < elements.length; i++) {
                 // @ts-ignore
