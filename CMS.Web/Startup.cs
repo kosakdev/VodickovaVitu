@@ -1,6 +1,5 @@
 using System;
 using System.Threading.Tasks;
-using AspNetCore.ReCaptcha;
 using CMS.BL.Installers;
 using CMS.DAL;
 using CMS.DAL.Entities;
@@ -29,8 +28,6 @@ namespace CMS.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddReCaptcha(Configuration.GetSection("ReCaptcha"));
-
             services.AddControllersWithViews();
             services.AddOptions();
             
