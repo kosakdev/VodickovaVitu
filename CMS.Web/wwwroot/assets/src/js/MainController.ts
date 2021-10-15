@@ -62,7 +62,7 @@ namespace web {
             }
         }
         
-        private hideElement(element) {
+        private hideElement(element:any) {
             element.style.display = "none";
         }
     }

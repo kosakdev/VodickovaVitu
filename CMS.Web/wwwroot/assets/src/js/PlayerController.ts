@@ -44,43 +44,39 @@ namespace web {
                 }
                 
                 let row = this.jsonData[i];
-                console.log("ROW")
-                // @ts-ignore
-                console.log(row.Title);
-                // @ts-ignore
-                console.log(row.title);
-                // @ts-ignore
-                console.log(row.VideoId);
-                // @ts-ignore
-                console.log(row.videoId);
                 
-                let node = document.createElement('div');
-                node.classList.add('section__video__block__list__item');
-                node.setAttribute("data-index", String(i));
-                // Image part
-                let imageDiv = document.createElement('div');
-                imageDiv.classList.add('section__video__block__list__item__image');
-                let image = document.createElement('img');
                 // @ts-ignore
-                image.setAttribute("src", "https://img.youtube.com/vi/" + row.VideoId + "/default.jpg");
-                image.setAttribute("alt", "");
-
-                imageDiv.appendChild(image);
-                node.appendChild(imageDiv);
-
-                // Text part
-                let textDiv = document.createElement('div');
-                textDiv.classList.add('section__video__block__list__item__text');
-                let title = document.createElement('h3');
-                title.classList.add('section__video__block__list__item__text__title');
-                // @ts-ignore
-                title.innerHTML = row.Title.slice(0, 20) + "...";
-
-                textDiv.appendChild(title);
-                node.appendChild(textDiv);
+                let node = this.createHtml(row.VideoId, row.Title, i)
 
                 document.getElementById("player__list").appendChild(node);
             }
+        }
+        
+        private createHtml(videoId: string, title: string, index: number): any {
+            let node = document.createElement('div');
+            node.classList.add('section__video__block__list__item');
+            node.setAttribute("data-index", String(index));
+            // Image part
+            let imageDiv = document.createElement('div');
+            imageDiv.classList.add('section__video__block__list__item__image');
+            let image = document.createElement('img');
+            image.setAttribute("src", "https://img.youtube.com/vi/" + videoId + "/default.jpg");
+            image.setAttribute("alt", "");
+
+            imageDiv.appendChild(image);
+            node.appendChild(imageDiv);
+
+            // Text part
+            let textDiv = document.createElement('div');
+            textDiv.classList.add('section__video__block__list__item__text');
+            let titleElm = document.createElement('h3');
+            titleElm.classList.add('section__video__block__list__item__text__title');
+            titleElm.innerHTML = title.slice(0, 20) + "...";
+
+            textDiv.appendChild(titleElm);
+            node.appendChild(textDiv);
+            
+            return node;
         }
         
         private addEventListener() {
@@ -93,6 +89,8 @@ namespace web {
         }
         
         private eventHandler(index: number) {
+            // this.videoIndex - old index
+            // index - new index
             this.videoIndex = index;
             this.preparePlayer();
             this.initPlayer();
