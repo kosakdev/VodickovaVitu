@@ -1,5 +1,6 @@
 #nullable enable
 using System.Threading.Tasks;
+using AspNetCore.ReCaptcha;
 using CMS.BL.Facades;
 using CMS.Web.Models;
 using CMS.Web.Services;
@@ -41,6 +42,7 @@ namespace CMS.Web.Controllers
             return View();
         }
         
+        [ValidateReCaptcha]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(ContactModel item)

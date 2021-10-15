@@ -1,3 +1,4 @@
+@addTagHelper *, AspNetCore.ReCaptcha
 @model ContactModel
 
 @{
@@ -58,6 +59,9 @@
                     <label class="section__calendar__block__list__item__label" asp-for="Notes">Další poznámky</label>
                     <textarea class="section__calendar__block__list__item__input" type="text" asp-for="Notes"></textarea>
                     <span asp-validation-for="Notes" class="section__calendar__block__list__item__error"></span>
+                </div>
+                <div class="section__form__block__item">
+                    <recaptcha />
                 </div>
                 <div class="section__form__block__item">
                     <input type="submit" value="Odeslat">
