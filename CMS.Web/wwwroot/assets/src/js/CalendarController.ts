@@ -54,7 +54,7 @@ namespace web {
                     for (let i = 0; i < data.length; i++) {
                         this.jsonData.push(data[i]);
                     }
-                    if (data.length <= this.skip) {
+                    if (data.length < this.skip) {
                         this.hideButton(button);
                     }
                 })
